@@ -34,11 +34,8 @@ const Header = () => {
             </div>
             <div className="text-xl font-bold text-finance-blue flex items-center">
               Aandelen onder de l
-              <span className="relative inline-flex items-center justify-center">
-                <span className="relative z-10">o</span>
-                <span className="absolute -right-1 -top-0.5 z-20">
-                  <Search className="h-4 w-4 text-finance-blue" />
-                </span>
+              <span className="relative inline-flex items-center justify-center w-5 h-5">
+                <Search className="h-5 w-5 text-finance-blue" />
               </span>
               ep
             </div>
