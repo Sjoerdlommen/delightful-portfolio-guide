@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LineChart } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,9 +28,12 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <div className="text-2xl font-bold text-finance-blue">
-              InvestAdvies
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="bg-finance-blue rounded-full p-2 text-white">
+              <LineChart className="h-5 w-5" />
+            </div>
+            <div className="text-xl font-bold text-finance-blue">
+              Aandelen onder de loep
             </div>
           </Link>
 
