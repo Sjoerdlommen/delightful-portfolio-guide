@@ -9,6 +9,8 @@ import HowItWorksPage from "./pages/HowItWorksPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import AnalysesPage from "./pages/AnalysesPage";
 import UpdatesPage from "./pages/UpdatesPage";
+import LoginPage from "./pages/LoginPage";
+import SubscribePage from "./pages/SubscribePage";
 import NotFound from "./pages/NotFound";
 
 // Create a new client with stable options
@@ -31,7 +33,9 @@ const App = () => (
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/analyses" element={<AnalysesPage />} />
           <Route path="/updates" element={<UpdatesPage />} />
-          <Route path="/plans" element={<Index />} />
+          <Route path="/plans" element={<SubscribePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/subscribe" element={<SubscribePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

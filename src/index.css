@@ -84,6 +84,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   }
   
   html {
@@ -130,5 +131,13 @@
   
   .delayed-fade-up-long {
     @apply opacity-0 animate-delayed-fade-up-long;
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 50%, #90caf9 100%);
+  }
+  
+  .bg-gradient-finance {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   }
 }

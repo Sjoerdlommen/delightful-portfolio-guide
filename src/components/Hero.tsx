@@ -14,7 +14,7 @@ const Hero = () => {
               Professioneel beleggingsadvies
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6">
-              Beleggen met inzicht een vertrouwen = <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
+              <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses én openstaande orders en zorg hiermee dat je een betere spreiding aanbrengt in je portefeuille.

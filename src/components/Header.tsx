@@ -48,11 +48,11 @@ const Header = () => {
             <NavLink to="/analyses">Analyses</NavLink>
             <NavLink to="/updates">Updates</NavLink>
             <div className="ml-4 flex space-x-3">
-              <Button variant="outline" size="sm" className="px-4 py-2 transition-all duration-300 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white">
-                Inloggen
+              <Button variant="outline" size="sm" className="px-4 py-2 transition-all duration-300 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white" asChild>
+                <Link to="/login">Inloggen</Link>
               </Button>
-              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300">
-                Abonneren
+              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300" asChild>
+                <Link to="/subscribe">Abonneren</Link>
               </Button>
             </div>
           </nav>
@@ -88,11 +88,11 @@ const Header = () => {
             Updates
           </MobileNavLink>
           <div className="pt-6 flex flex-col space-y-3">
-            <Button variant="outline" className="w-full py-3 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white">
-              Inloggen
+            <Button variant="outline" className="w-full py-3 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white" asChild>
+              <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Inloggen</Link>
             </Button>
-            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90">
-              Abonneren
+            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90" asChild>
+              <Link to="/subscribe" onClick={() => setMobileMenuOpen(false)}>Abonneren</Link>
             </Button>
           </div>
         </nav>
