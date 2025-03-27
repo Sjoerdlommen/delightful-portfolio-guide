@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Hero />
         <HowItWorks />
         <SubscriptionPlans />

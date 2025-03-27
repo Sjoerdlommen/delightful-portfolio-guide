@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
               Professioneel beleggingsadvies
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6">
-              Analyseren met <span className="text-finance-blue">precisie</span>, investeren met <span className="text-finance-blue">visie</span>!
+              Beleggen met inzicht een vertrouwen = <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses én openstaande orders en zorg hiermee dat je een betere spreiding aanbrengt in je portefeuille.
@@ -26,28 +27,16 @@ const Hero = () => {
                 </Button>
               </Link>
             </div>
-            <div className="mt-10 flex items-center space-x-6">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs font-medium">
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="text-sm font-medium">Meer dan 5,000+ tevreden klanten</div>
-                <div className="text-xs text-muted-foreground">Sluit je vandaag aan bij onze community</div>
-              </div>
-            </div>
           </div>
           
           <div className="relative">
-            <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-xl">
-              {/* Placeholder for professional image */}
-              <div className="bg-gray-200 w-full h-full flex items-center justify-center">
-                <span className="text-gray-400">Professionele foto</span>
-              </div>
-            </div>
+            <AspectRatio ratio={4/3} className="rounded-xl overflow-hidden shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                alt="Professionele foto" 
+                className="object-cover w-full h-full"
+              />
+            </AspectRatio>
           </div>
         </div>
       </div>

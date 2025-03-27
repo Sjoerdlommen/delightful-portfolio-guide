@@ -52,9 +52,9 @@ const SubscriptionPlans = () => {
   ];
 
   return (
-    <section className="section-padding py-24" id="plans">
+    <section className="py-24" id="plans">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16 fade-in">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Abonnementen</h2>
           <p className="text-lg text-muted-foreground">
             Kies het abonnement dat het beste past bij jouw beleggingsdoelen.
@@ -65,12 +65,11 @@ const SubscriptionPlans = () => {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl fade-up ${
+              className={`relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl ${
                 plan.isPopular 
                   ? "border-2 border-finance-blue shadow-lg" 
                   : "border border-gray-200 shadow-md"
               }`}
-              style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.isPopular && (
                 <div className="absolute top-0 right-0 bg-finance-blue text-white px-4 py-1 text-sm font-medium">
