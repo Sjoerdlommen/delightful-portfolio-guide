@@ -1,6 +1,6 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -12,20 +12,18 @@ const Hero = () => {
               Professioneel beleggingsadvies
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6">
-              Beleggen met inzicht en <span className="text-finance-blue">vertrouwen</span>
+              Analyseren met <span className="text-finance-blue">precisie</span>, investeren met <span className="text-finance-blue">visie</span>!
             </h1>
             <p className="text-lg text-muted-foreground mb-8 delayed-fade">
-              Krijg toegang tot professionele analyses, portefeuilleadviezen en marktinzichten. 
-              Maak gefundeerde beleggingsbeslissingen met onze expertvervaardigde adviezen.
+              Krijg toegang tot onze huidige portefeuille, uitgebreide analyses én openstaande orders en zorg hiermee dat je een betere spreiding aanbrengt in je portefeuille.
             </p>
             <div className="flex flex-wrap gap-4 delayed-fade-up">
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
-                Start Vandaag
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white px-6 py-6 rounded-lg text-base transition-all">
-                Ontdek onze plannen
-              </Button>
+              <Link to="/how-it-works">
+                <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
+                  Start Vandaag
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
             <div className="mt-10 flex items-center space-x-6 delayed-fade-up-medium">
               <div className="flex -space-x-2">
@@ -43,44 +41,10 @@ const Hero = () => {
           </div>
           
           <div className="relative delayed-fade-up-long">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl transform rotate-3 scale-105"></div>
-            <div className="relative bg-white glass-card rounded-2xl p-6 shadow-xl">
-              <div className="flex justify-between items-center mb-8">
-                <div>
-                  <h3 className="text-xl font-semibold">Mijn Portefeuille</h3>
-                  <p className="text-sm text-muted-foreground">Laatste update: vandaag</p>
-                </div>
-                <div className="flex items-center px-3 py-1 bg-green-50 text-green-600 rounded-full">
-                  <span className="text-sm font-medium">+8.2%</span>
-                </div>
-              </div>
-              
-              <div className="space-y-5">
-                {[
-                  { name: "ASML", price: "€768.40", change: "+2.4%", color: "green" },
-                  { name: "Adyen", price: "€945.20", change: "+1.8%", color: "green" },
-                  { name: "Philips", price: "€26.50", change: "-0.5%", color: "red" },
-                  { name: "ING Groep", price: "€14.38", change: "+3.2%", color: "green" },
-                ].map((stock, index) => (
-                  <div key={index} className="flex justify-between items-center py-3 border-b border-gray-100">
-                    <div>
-                      <div className="font-medium">{stock.name}</div>
-                      <div className="text-sm text-muted-foreground">AMS</div>
-                    </div>
-                    <div className="text-right">
-                      <div>{stock.price}</div>
-                      <div className={`text-sm ${stock.color === "green" ? "text-green-600" : "text-red-500"}`}>
-                        {stock.change}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-6">
-                <Button className="w-full bg-finance-blue hover:bg-finance-blue/90 text-white rounded-lg transition-all">
-                  Bekijk volledig overzicht
-                </Button>
+            <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-xl">
+              {/* Placeholder for professional image */}
+              <div className="bg-gray-200 w-full h-full flex items-center justify-center">
+                <span className="text-gray-400">Professionele foto</span>
               </div>
             </div>
           </div>

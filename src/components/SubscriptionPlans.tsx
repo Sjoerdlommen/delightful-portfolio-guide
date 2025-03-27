@@ -5,49 +5,49 @@ import { Button } from "@/components/ui/button";
 const SubscriptionPlans = () => {
   const plans = [
     {
-      name: "Basis",
-      price: "€19",
+      name: "Basis Abonnement",
+      duration: "6 maanden",
+      price: "€9,99",
       period: "per maand",
       description: "Perfect voor beginnende beleggers",
       features: [
-        "Wekelijkse marktanalyses",
-        "Toegang tot basis-aanbevelingen",
-        "Digitaal dashboard",
-        "Email ondersteuning"
+        "Inzicht in onze volledige portefeuille + openstaande orders",
+        "Ontvang tweemaal per week uitgebreide analyses",
+        "Ontvang wekelijks een video-update",
+        "Toegang tot de kennisportaal"
       ],
       isPopular: false,
-      buttonText: "Start met Basis"
+      buttonText: "Kies Basis"
     },
     {
-      name: "Premium",
-      price: "€39",
+      name: "Plus Abonnement",
+      duration: "1 jaar",
+      price: "€8,49",
       period: "per maand",
-      description: "Voor de serieuze belegger",
+      description: "Bespaar 15% t.o.v. Basis",
       features: [
-        "Dagelijkse marktanalyses",
-        "Gepersonaliseerde aanbevelingen",
-        "Uitgebreid dashboard",
-        "Prioriteit email ondersteuning",
-        "Toegang tot webinars"
+        "Inzicht in onze volledige portefeuille + openstaande orders",
+        "Ontvang tweemaal per week uitgebreide analyses",
+        "Ontvang wekelijks een video-update",
+        "Toegang tot de kennisportaal"
       ],
       isPopular: true,
-      buttonText: "Kies Premium"
+      buttonText: "Kies Plus"
     },
     {
-      name: "Zakelijk",
-      price: "€99",
+      name: "Premium Abonnement",
+      duration: "2 jaar",
+      price: "€6,99",
       period: "per maand",
-      description: "Voor professionele beleggers",
+      description: "Bespaar 30% t.o.v. Basis",
       features: [
-        "Real-time marktanalyses",
-        "Op maat gemaakte aanbevelingen",
-        "Geavanceerd dashboard",
-        "Persoonlijke adviseur",
-        "Exclusieve investeringskansen",
-        "Directe telefonische ondersteuning"
+        "Inzicht in onze volledige portefeuille + openstaande orders",
+        "Ontvang tweemaal per week uitgebreide analyses",
+        "Ontvang wekelijks een video-update",
+        "Toegang tot de kennisportaal"
       ],
       isPopular: false,
-      buttonText: "Zakelijk starten"
+      buttonText: "Kies Premium"
     }
   ];
 
@@ -79,6 +79,7 @@ const SubscriptionPlans = () => {
               )}
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <p className="text-sm text-gray-500 mb-2">({plan.duration})</p>
                 <div className="flex items-baseline mb-4">
                   <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-gray-500 ml-1">{plan.period}</span>
