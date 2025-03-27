@@ -11,13 +11,19 @@ import AnalysesPage from "./pages/AnalysesPage";
 import UpdatesPage from "./pages/UpdatesPage";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Create a new client with stable options
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -25,9 +31,11 @@ const App = () => (
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/analyses" element={<AnalysesPage />} />
           <Route path="/updates" element={<UpdatesPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/plans" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Toaster />
+        <Sonner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
