@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[3px] ${
         isScrolled 
           ? "bg-white/95 backdrop-blur-lg shadow-sm py-3 border-gray-300" 
           : "bg-white py-5 border-gray-300"
@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/logo.png" alt="Aandelen onder de loep" className="h-10" />
+            <img src="/lovable-uploads/c9828bd3-fd27-4005-84cc-c56233ecde3a.png" alt="Aandelen onder de loep" className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -2,9 +2,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
-import WelcomeVideo from "@/components/WelcomeVideo";
 import SubscriptionPlans from "@/components/SubscriptionPlans";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,9 +14,9 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <HowItWorks />
-        <WelcomeVideo />
         <SubscriptionPlans />
         <NewsletterSignup />
+        <Testimonials />
       </main>
       <Footer />
     </div>

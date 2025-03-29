@@ -12,7 +12,7 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6">
               <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 border border-gray-200 rounded-lg p-4">
+            <p className="text-lg text-muted-foreground mb-8">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="lg:col-span-2">
             <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
               <h3 className="absolute top-0 left-0 right-0 bg-finance-blue/80 text-white py-2 text-center font-medium">
-                Welkom bij Aandelen onder de loep
+                Welkom bij Aandelen Onder De Loep
               </h3>
               <div className="relative h-full">
                 <video 

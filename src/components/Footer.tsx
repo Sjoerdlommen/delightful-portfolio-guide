@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src="/logo.png" alt="Aandelen onder de loep" className="h-12" />
+              <img src="/lovable-uploads/c9828bd3-fd27-4005-84cc-c56233ecde3a.png" alt="Aandelen onder de loep" className="h-12" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
               Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille en maak weloverwogen investeringen.
