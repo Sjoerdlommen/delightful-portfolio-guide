@@ -9,14 +9,22 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden bg-gradient-to-b from-white via-finance-gray/30 to-white">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
       <main className="flex-grow">
         <Hero />
-        <HowItWorks />
-        <SubscriptionPlans />
-        <NewsletterSignup />
-        <Testimonials />
+        <div className="bg-finance-gray/30 py-10 border-y border-gray-200">
+          <HowItWorks />
+        </div>
+        <div className="bg-white py-10">
+          <SubscriptionPlans />
+        </div>
+        <div className="bg-finance-gray/15 py-10 border-y border-gray-200">
+          <NewsletterSignup />
+        </div>
+        <div className="bg-white py-10">
+          <Testimonials />
+        </div>
       </main>
       <Footer />
     </div>
