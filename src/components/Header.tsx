@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Instagram, Linkedin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[4px] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[6px] ${
         isScrolled 
           ? "bg-white/95 backdrop-blur-lg shadow-sm py-3 border-gray-300" 
           : "bg-white py-5 border-gray-300"
@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-10" />
+            <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,7 +43,7 @@ const Header = () => {
               <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
                 <Link to="/login">Inloggen</Link>
               </Button>
-              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300" asChild>
+              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
                 <Link to="/subscribe">Abonneren</Link>
               </Button>
             </div>
@@ -86,7 +86,7 @@ const Header = () => {
             <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
               <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Inloggen</Link>
             </Button>
-            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90" asChild>
+            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
               <Link to="/subscribe" onClick={() => setMobileMenuOpen(false)}>Abonneren</Link>
             </Button>
           </div>
