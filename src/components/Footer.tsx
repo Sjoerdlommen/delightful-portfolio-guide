@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Mail, LineChart, Search } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,25 +32,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <div className="flex items-center space-x-2">
-                <div className="bg-white rounded-full p-2 text-finance-blue">
-                  <LineChart className="h-5 w-5" />
-                </div>
-                <div className="text-xl font-bold text-finance-blue flex items-center">
-                  Aandelen onder de l
-                  <span className="relative inline-flex items-center justify-center w-5 h-5">
-                    <Search className="h-4 w-4 text-black" />
-                  </span>
-                  ep
-                </div>
-              </div>
+              <img src="/logo.png" alt="Aandelen onder de loep" className="h-12" />
             </Link>
-            <div className="flex items-center space-x-2 text-muted-foreground mb-6">
-              <Mail className="h-5 w-5" />
-              <a href="mailto:sjoerd@aandelenonderdeloep.nl" className="hover:text-finance-blue transition-colors">
-                sjoerd@aandelenonderdeloep.nl
-              </a>
-            </div>
+            <p className="text-muted-foreground mb-6 max-w-md">
+              Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille en maak weloverwogen investeringen.
+            </p>
             <div className="flex space-x-4">
               {[Instagram, Linkedin].map((Icon, index) => (
                 <a

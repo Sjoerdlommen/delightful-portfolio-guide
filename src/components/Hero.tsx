@@ -2,7 +2,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
   return (
@@ -13,7 +12,7 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6">
               <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-8 border border-gray-200 rounded-lg p-4">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -27,13 +26,21 @@ const Hero = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <AspectRatio ratio={4/3} className="rounded-xl overflow-hidden shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
-                alt="Professionele foto" 
-                className="object-cover w-full h-full"
-              />
-            </AspectRatio>
+            <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+              <h3 className="absolute top-0 left-0 right-0 bg-finance-blue/80 text-white py-2 text-center font-medium">
+                Welkom bij Aandelen onder de loep
+              </h3>
+              <div className="relative h-full">
+                <video 
+                  className="w-full h-full object-cover"
+                  controls
+                  poster="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                >
+                  <source src="#" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
           </div>
         </div>
       </div>

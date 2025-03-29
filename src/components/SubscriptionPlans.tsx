@@ -27,7 +27,7 @@ const SubscriptionPlans = () => {
       duration: "1 jaar",
       price: "€12,50",
       period: "per maand",
-      description: "Bespaar 15% t.o.v. Basis",
+      description: "€2,50 korting per maand t.o.v. Basis",
       features: [
         "Inzicht in onze volledige portefeuille + openstaande orders",
         "Ontvang tweemaal per week uitgebreide analyses",
@@ -45,7 +45,7 @@ const SubscriptionPlans = () => {
       duration: "2 jaar",
       price: "€10",
       period: "per maand",
-      description: "Bespaar 30% t.o.v. Basis",
+      description: "€5 korting per maand t.o.v. Basis",
       features: [
         "Inzicht in onze volledige portefeuille + openstaande orders",
         "Ontvang tweemaal per week uitgebreide analyses",
@@ -67,7 +67,7 @@ const SubscriptionPlans = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Abonnementen</h2>
           <p className="text-lg text-muted-foreground">
-            Kies het abonnement dat het beste bij jou past
+            Kies het abonnement dat het beste bij jou past!
           </p>
         </div>
 

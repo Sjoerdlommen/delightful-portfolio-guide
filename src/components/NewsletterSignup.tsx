@@ -24,7 +24,7 @@ const NewsletterSignup = () => {
             <div>
               <h2 className="text-3xl font-bold mb-4">Liever eerst een inkijkje?</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Vul dan onderstaande gegevens in en ontvang een..
+                Vul dan onderstaande gegevens in en ontvang gratis een..
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
