@@ -1,36 +1,27 @@
 
 import { Link } from "react-router-dom";
-import { ExternalLink, Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Mail, LineChart, Search } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const footerLinks = [
     {
-      title: "Producten",
+      title: "Beleggen",
       links: [
-        { name: "Beleggingsadvies", href: "#" },
-        { name: "Portefeuille analyses", href: "#" },
-        { name: "Marktvooruitzichten", href: "#" },
-        { name: "Zakelijke oplossingen", href: "#" },
+        { name: "Portefeuille", href: "/portfolio" },
+        { name: "Analyses", href: "/analyses" },
+        { name: "Updates", href: "/updates" },
+        { name: "Kennisportaal", href: "/knowledge-portal" },
       ],
     },
     {
-      title: "Bedrijf",
+      title: "Aandelen onder de loep",
       links: [
-        { name: "Over ons", href: "#" },
-        { name: "Ons team", href: "#" },
-        { name: "Vacatures", href: "#" },
-        { name: "Pers", href: "#" },
-      ],
-    },
-    {
-      title: "Ondersteuning",
-      links: [
-        { name: "Contact", href: "#" },
-        { name: "FAQ", href: "#" },
-        { name: "Voorwaarden", href: "#" },
-        { name: "Privacy", href: "#" },
+        { name: "Inloggen", href: "/login" },
+        { name: "Abonneren", href: "/subscribe" },
+        { name: "Contact", href: "/contact" },
+        { name: "FAQ", href: "/faq" },
       ],
     },
   ];
@@ -38,17 +29,30 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <div className="text-2xl font-bold text-finance-blue">InvestAdvies</div>
+              <div className="flex items-center space-x-2">
+                <div className="bg-white rounded-full p-2 text-finance-blue">
+                  <LineChart className="h-5 w-5" />
+                </div>
+                <div className="text-xl font-bold text-finance-blue flex items-center">
+                  Aandelen onder de l
+                  <span className="relative inline-flex items-center justify-center w-5 h-5">
+                    <Search className="h-4 w-4 text-black" />
+                  </span>
+                  ep
+                </div>
+              </div>
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Professioneel beleggingsadvies voor particuliere en zakelijke beleggers. 
-              Krijg toegang tot diepgaande analyses en portefeuilleadviezen.
-            </p>
+            <div className="flex items-center space-x-2 text-muted-foreground mb-6">
+              <Mail className="h-5 w-5" />
+              <a href="mailto:sjoerd@aandelenonderdeloep.nl" className="hover:text-finance-blue transition-colors">
+                sjoerd@aandelenonderdeloep.nl
+              </a>
+            </div>
             <div className="flex space-x-4">
-              {[Twitter, Facebook, Instagram, Linkedin].map((Icon, index) => (
+              {[Instagram, Linkedin].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
@@ -66,15 +70,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {column.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
-                    <a 
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-muted-foreground hover:text-finance-blue transition-colors flex items-center"
                     >
                       {link.name}
-                      {linkIdx === column.links.length - 1 && (
-                        <ExternalLink className="ml-1 h-3 w-3" />
-                      )}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -84,18 +85,18 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © {currentYear} InvestAdvies. Alle rechten voorbehouden.
+            © {currentYear} Aandelen onder de loep. Alle rechten voorbehouden.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
-              Gebruiksvoorwaarden
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+              Voorwaarden
+            </Link>
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Privacybeleid
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            </Link>
+            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>

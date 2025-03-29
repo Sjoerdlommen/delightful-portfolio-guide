@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, LineChart, Search } from "lucide-react";
+import { Menu, X, LineChart, Search, Mail } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,23 +19,23 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-100 ${
         isScrolled 
-          ? "bg-white/80 backdrop-blur-lg shadow-md py-3" 
-          : "bg-transparent py-5"
+          ? "bg-white/95 backdrop-blur-lg shadow-sm py-3" 
+          : "bg-white py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-finance-blue rounded-full p-2 text-white">
+            <div className="bg-white rounded-full p-2 text-finance-blue">
               <LineChart className="h-5 w-5" />
             </div>
             <div className="text-xl font-bold text-finance-blue flex items-center">
               Aandelen onder de l
               <span className="relative inline-flex items-center justify-center w-5 h-5">
-                <Search className="h-5 w-5 text-finance-blue" />
+                <Search className="h-4 w-4 text-black" />
               </span>
               ep
             </div>
@@ -47,6 +47,7 @@ const Header = () => {
             <NavLink to="/portfolio">Portefeuille</NavLink>
             <NavLink to="/analyses">Analyses</NavLink>
             <NavLink to="/updates">Updates</NavLink>
+            <NavLink to="/knowledge-portal">Kennisportaal</NavLink>
             <div className="ml-4 flex space-x-3">
               <Button variant="outline" size="sm" className="px-4 py-2 transition-all duration-300 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white" asChild>
                 <Link to="/login">Inloggen</Link>
@@ -87,6 +88,9 @@ const Header = () => {
           <MobileNavLink to="/updates" onClick={() => setMobileMenuOpen(false)}>
             Updates
           </MobileNavLink>
+          <MobileNavLink to="/knowledge-portal" onClick={() => setMobileMenuOpen(false)}>
+            Kennisportaal
+          </MobileNavLink>
           <div className="pt-6 flex flex-col space-y-3">
             <Button variant="outline" className="w-full py-3 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white" asChild>
               <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Inloggen</Link>
@@ -101,11 +105,11 @@ const Header = () => {
   );
 };
 
-// Desktop navigation link component
+// Desktop navigation link component with border
 const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link
     to={to}
-    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-finance-blue transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:w-0 after:bg-finance-blue after:transition-all hover:after:w-full"
+    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-finance-blue transition-colors relative border border-transparent hover:border-gray-200 rounded-md"
   >
     {children}
   </Link>

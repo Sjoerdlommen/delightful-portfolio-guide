@@ -1,0 +1,108 @@
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+const ContactPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow pt-32">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8">Contact</h1>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+              <div className="lg:col-span-2">
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Neem contact met ons op</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Heb je vragen over onze diensten of wil je meer informatie? Vul het formulier in of neem direct contact met ons op.
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <Mail className="w-5 h-5 text-finance-blue mt-1" />
+                    <div>
+                      <h4 className="font-medium">E-mail</h4>
+                      <a href="mailto:sjoerd@aandelenonderdeloep.nl" className="text-muted-foreground hover:text-finance-blue">
+                        sjoerd@aandelenonderdeloep.nl
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <Phone className="w-5 h-5 text-finance-blue mt-1" />
+                    <div>
+                      <h4 className="font-medium">Telefoon</h4>
+                      <p className="text-muted-foreground">Op aanvraag beschikbaar</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="w-5 h-5 text-finance-blue mt-1" />
+                    <div>
+                      <h4 className="font-medium">Locatie</h4>
+                      <p className="text-muted-foreground">Nederland</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="lg:col-span-3">
+                <div className="bg-white rounded-xl shadow-md p-8">
+                  <form className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                          Naam
+                        </label>
+                        <Input id="name" placeholder="Uw naam" required />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                          E-mail
+                        </label>
+                        <Input id="email" type="email" placeholder="Uw e-mailadres" required />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                        Onderwerp
+                      </label>
+                      <Input id="subject" placeholder="Onderwerp van uw bericht" required />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Bericht
+                      </label>
+                      <Textarea 
+                        id="message" 
+                        placeholder="Uw bericht" 
+                        rows={5} 
+                        required 
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="bg-finance-blue hover:bg-finance-blue/90 text-white">
+                      Versturen
+                    </Button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default ContactPage;

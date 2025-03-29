@@ -1,13 +1,14 @@
 
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const SubscriptionPlans = () => {
   const plans = [
     {
       name: "Basis Abonnement",
       duration: "6 maanden",
-      price: "€9,99",
+      price: "€15",
       period: "per maand",
       description: "Perfect voor beginnende beleggers",
       features: [
@@ -17,37 +18,46 @@ const SubscriptionPlans = () => {
         "Toegang tot de kennisportaal"
       ],
       isPopular: false,
-      buttonText: "Kies Basis"
+      buttonText: "Kies Basis",
+      total: 90,
+      planId: "half-year"
     },
     {
       name: "Plus Abonnement",
       duration: "1 jaar",
-      price: "€8,49",
+      price: "€12,50",
       period: "per maand",
       description: "Bespaar 15% t.o.v. Basis",
       features: [
         "Inzicht in onze volledige portefeuille + openstaande orders",
         "Ontvang tweemaal per week uitgebreide analyses",
         "Ontvang wekelijks een video-update",
-        "Toegang tot de kennisportaal"
+        "Toegang tot de kennisportaal",
+        "Krijg inspraak in de aandelen die worden meegenomen in de uitgebreide analyse"
       ],
       isPopular: true,
-      buttonText: "Kies Plus"
+      buttonText: "Kies Plus",
+      total: 150,
+      planId: "year"
     },
     {
       name: "Premium Abonnement",
       duration: "2 jaar",
-      price: "€6,99",
+      price: "€10",
       period: "per maand",
       description: "Bespaar 30% t.o.v. Basis",
       features: [
         "Inzicht in onze volledige portefeuille + openstaande orders",
         "Ontvang tweemaal per week uitgebreide analyses",
         "Ontvang wekelijks een video-update",
-        "Toegang tot de kennisportaal"
+        "Toegang tot de kennisportaal",
+        "Krijg inspraak in de aandelen die worden meegenomen in de uitgebreide analyse",
+        "Ontvang feedback op jouw aandelenportefeuille"
       ],
       isPopular: false,
-      buttonText: "Kies Premium"
+      buttonText: "Kies Premium",
+      total: 240,
+      planId: "two-year"
     }
   ];
 
@@ -57,7 +67,7 @@ const SubscriptionPlans = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Abonnementen</h2>
           <p className="text-lg text-muted-foreground">
-            Kies het abonnement dat het beste past bij jouw beleggingsdoelen.
+            Kies het abonnement dat het beste bij jou past
           </p>
         </div>
 
@@ -96,15 +106,17 @@ const SubscriptionPlans = () => {
                   ))}
                 </div>
                 
-                <Button 
-                  className={`w-full py-6 ${
-                    plan.isPopular 
-                      ? "bg-finance-blue hover:bg-finance-blue/90" 
-                      : "bg-white border-2 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white"
-                  }`}
-                >
-                  {plan.buttonText}
-                </Button>
+                <Link to={`/subscribe?plan=${plan.planId}`}>
+                  <Button 
+                    className={`w-full py-6 ${
+                      plan.isPopular 
+                        ? "bg-finance-blue hover:bg-finance-blue/90" 
+                        : "bg-white border-2 border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white"
+                    }`}
+                  >
+                    {plan.buttonText}
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

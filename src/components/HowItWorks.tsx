@@ -1,27 +1,32 @@
 
 import { ArrowRight, LineChart, FileText, Mail, BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
   const features = [
     {
       icon: <LineChart className="w-10 h-10 text-finance-blue" />,
       title: "Portefeuille",
-      description: "Als abonnee kunt u onze huidige portefeuille inzien met onder andere de spreiding die wij hebben aangebracht, wat de gemiddelde aankoopprijzen zijn en het huidige resultaat."
+      description: "Krijg inzicht in onze gespreide aandelenportefeuille, onze gemiddelde aankoopprijzen en het huidige resultaat.",
+      link: "/portfolio"
     },
     {
       icon: <FileText className="w-10 h-10 text-finance-blue" />,
       title: "Uitgebreide Analyses",
-      description: "Wekelijks nemen wij twee aandelen onder de loep en als abonnee nemen we u helemaal mee in deze grondige fundamentele analyse en bepalen wij op basis van technische analyse of wij een kooporder klaarzetten."
+      description: "Ontvang tweemaal per week een uitgebreide analyse en zie welke kooporders wij klaarzetten.",
+      link: "/analyses"
     },
     {
       icon: <Mail className="w-10 h-10 text-finance-blue" />,
       title: "Updates",
-      description: "Wekelijks ontvangt u een weekupdate in uw mailbox waarin wij u meenemen in onze denkwijze, blik op de beurs en beslissingen die wij nemen."
+      description: "Ontvang wekelijks een video-update waarin wij terugblikken op de week en onze beslissingen toelichten.",
+      link: "/updates"
     },
     {
       icon: <BookOpen className="w-10 h-10 text-finance-blue" />,
       title: "Kennisportaal",
-      description: "Omdat wij het belangrijk vinden om u kennis bij te brengen zodat u onze beslissingen begrijpt, hebben wij een kennisportaal opgesteld waarin wij video's plaatsen over belangrijke onderwerpen."
+      description: "Krijg toegang tot de kennisportaal met video's over essentiële onderwerpen in het beleggen.",
+      link: "/knowledge-portal"
     }
   ];
 
@@ -30,9 +35,6 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Wat wij bieden</h2>
-          <p className="text-lg text-muted-foreground">
-            Ons platform maakt professioneel beleggingsadvies toegankelijk en eenvoudig te volgen.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -46,13 +48,13 @@ const HowItWorks = () => {
               </div>
               <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
               <p className="text-muted-foreground mb-6">{feature.description}</p>
-              <a 
-                href="#" 
+              <Link 
+                to={feature.link}
                 className="text-finance-blue font-medium inline-flex items-center group"
               >
                 Meer informatie 
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           ))}
         </div>
