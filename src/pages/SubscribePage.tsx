@@ -1,50 +1,70 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const SubscribePage = () => {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [gender, setGender] = useState<string | null>(null);
-  const [newsletter, setNewsletter] = useState<string | null>(null);
+  const location = useLocation();
+  const [selectedPlan, setSelectedPlan] = useState<string>("half-year");
+  const [gender, setGender] = useState<string | null>("mr");
   
   const { register, handleSubmit, formState: { errors } } = useForm();
   
+  // Handle the state from the subscription button click
+  useEffect(() => {
+    if (location.state && location.state.plan) {
+      setSelectedPlan(location.state.plan);
+    }
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }, [location.state]);
+  
   const onSubmit = (data: any) => {
-    console.log({ ...data, selectedPlan, gender, newsletter });
+    console.log({ ...data, selectedPlan, gender });
+    
+    // Show success toast
+    toast({
+      title: "Abonnement geactiveerd",
+      description: "Bedankt en welkom bij Aandelen Onder De Loep, u ontvangt binnen enkele minuten een bevestigingsmail.",
+      duration: 5000,
+    });
+    
     // Subscription processing logic would go here
   };
   
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 via-white to-blue-50" id="top">
       <Header />
       <main className="flex-grow py-16">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">Abonneren op Aandelen Onder Een Tientje</h1>
-            <p className="text-gray-600 mb-8 text-center">Vul dit formulier in om een abonnement te nemen op Aandelen Onder Een Tientje.</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">Abonneren op Aandelen Onder De Loep</h1>
+            <p className="text-gray-600 mb-8 text-center">Vul uw gegevens in om een abonnement te nemen op Aandelen Onder De Loep.</p>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               <div className="border-b border-gray-200 pb-6">
                 <h2 className="text-xl font-semibold text-finance-blue mb-4">Kies een abonnement:</h2>
-                <RadioGroup value={selectedPlan || ""} onValueChange={setSelectedPlan} className="space-y-3">
+                <RadioGroup value={selectedPlan} onValueChange={setSelectedPlan} className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="half-year" id="half-year" />
-                    <Label htmlFor="half-year" className="cursor-pointer">Halfjaarabonnement voor € 159,00</Label>
+                    <Label htmlFor="half-year" className="cursor-pointer">Basis abonnement (6 maanden) voor € 90 - € 15 per maand</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="year" id="year" />
-                    <Label htmlFor="year" className="cursor-pointer">Jaarabonnement voor € 299,00</Label>
+                    <Label htmlFor="year" className="cursor-pointer">Plus abonnement (1 jaar) voor € 150 - € 12,50 per maand</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="two-year" id="two-year" />
-                    <Label htmlFor="two-year" className="cursor-pointer">Tweejarigabonnement voor € 449,00</Label>
+                    <Label htmlFor="two-year" className="cursor-pointer">Premium abonnement (2 jaar) voor € 240 - € 10 per maand</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -165,26 +185,15 @@ const SubscribePage = () => {
                 </div>
                 
                 <div className="mt-4">
-                  <Label className="text-gray-700 mb-1">Wilt u een drukwerk factuur ontvangen?</Label>
-                  <RadioGroup value={newsletter || ""} onValueChange={setNewsletter} className="flex space-x-4 mt-1">
-                    <div className="flex items-center space-x-1">
-                      <RadioGroupItem value="yes" id="invoice-yes" />
-                      <Label htmlFor="invoice-yes" className="cursor-pointer">Ja</Label>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <RadioGroupItem value="no" id="invoice-no" />
-                      <Label htmlFor="invoice-no" className="cursor-pointer">Nee</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-                
-                <div className="mt-4">
                   <p className="text-sm text-gray-700">Velden met een * zijn verplicht.</p>
                 </div>
               </div>
               
               <div className="flex justify-end">
-                <Button type="submit" className="bg-green-700 hover:bg-green-800 text-white px-6 py-6">
+                <Button 
+                  type="submit" 
+                  className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6"
+                >
                   Abonneren
                 </Button>
               </div>

@@ -9,10 +9,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
-            <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold leading-tight text-balance mb-6">
-              <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>, <span className="text-finance-blue">investeren</span> met <span className="text-finance-blue">visie</span>!
+            <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold leading-tight mb-6 max-w-md">
+              <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
+              <span>investeren</span> met <span className="text-finance-blue">een</span> <span className="text-finance-blue">visie</span>!
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-8 max-w-md">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">

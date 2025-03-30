@@ -29,7 +29,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
-      <main className="flex-grow flex items-center justify-center px-4 py-12">
+      <main className="flex-grow flex items-center justify-center px-4 py-24">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <div className="mb-8 text-center">
@@ -113,7 +113,7 @@ const LoginPage = () => {
                 
                 <Button 
                   type="submit" 
-                  className="w-full py-6 bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-medium"
+                  className="w-full py-6 bg-finance-blue hover:bg-finance-blue/90 text-white font-medium"
                 >
                   Inloggen
                 </Button>

@@ -106,7 +106,7 @@ const SubscriptionPlans = () => {
                   ))}
                 </div>
                 
-                <Link to={`/subscribe?plan=${plan.planId}`}>
+                <Link to={`/subscribe#top`} state={{ plan: plan.planId }}>
                   <Button 
                     className={`w-full py-6 ${
                       plan.isPopular 

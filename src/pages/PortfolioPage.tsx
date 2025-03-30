@@ -9,7 +9,7 @@ const PortfolioPage = () => {
       <Header />
       <main className="flex-grow pt-24">
         <div className="container mx-auto px-4 py-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-8">Mijn Portefeuille</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8">Portefeuille</h1>
           <PortfolioPreview />
         </div>
       </main>

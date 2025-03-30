@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Play, BookOpen, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const KnowledgePortalPage = () => {
   const videoCategories = [
@@ -44,11 +45,16 @@ const KnowledgePortalPage = () => {
       <Header />
       <main className="flex-grow pt-32">
         <div className="container mx-auto px-4 py-12">
-          <div className="mb-16">
+          <div className="mb-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6">Kennisportaal</h1>
-            <p className="text-lg text-muted-foreground max-w-3xl">
-              Welkom bij ons kennisportaal. Hier vind je video's over essentiële onderwerpen in het beleggen om je kennis te verdiepen en je beleggingsvaardigheden te verbeteren.
+            <p className="text-lg text-muted-foreground max-w-3xl mb-8">
+              In onze kennisportaal plaatsen wij video's over essentiële onderwerpen die betrekking hebben op een verantwoorde manier beleggen. Denk hierbij aan onderwerpen zoals het belang van investeren, spreiding aanbrengen en de juiste mindset tijdens het investeren.
             </p>
+            <Link to="/subscribe">
+              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
+                Krijg toegang tot onze kennisportaal
+              </Button>
+            </Link>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -70,19 +76,22 @@ const KnowledgePortalPage = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {featuredVideos.map((video, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1">
+                <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 opacity-70">
                   <div className="relative">
                     <img 
                       src={video.thumbnail} 
                       alt={video.title} 
                       className="w-full h-48 object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                      <button className="w-12 h-12 bg-finance-blue rounded-full flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <div className="w-12 h-12 bg-finance-blue rounded-full flex items-center justify-center">
                         <Play className="h-6 w-6 text-white ml-1" />
-                      </button>
+                      </div>
+                      <span className="absolute bottom-2 text-white text-xs bg-black/60 px-2 py-1 rounded">
+                        Alleen voor abonnees
+                      </span>
                     </div>
-                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
+                    <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
                       <Clock className="h-3 w-3 mr-1" />
                       {video.duration}
                     </div>
@@ -96,18 +105,6 @@ const KnowledgePortalPage = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-          
-          <div className="bg-finance-lightblue/50 rounded-2xl p-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold mb-4">Krijg toegang tot alle video's</h2>
-              <p className="text-muted-foreground mb-6">
-                Abonneer je om toegang te krijgen tot ons volledige kennisportaal met meer dan 50 educatieve video's.
-              </p>
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
-                Bekijk onze abonnementen
-              </Button>
             </div>
           </div>
         </div>

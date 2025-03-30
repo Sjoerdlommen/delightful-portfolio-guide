@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-12" />
+            <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-16" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -96,11 +96,11 @@ const Header = () => {
   );
 };
 
-// Desktop navigation link component without permanent border
+// Desktop navigation link component without borders
 const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link
     to={to}
-    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-finance-blue transition-colors relative"
+    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-finance-blue transition-colors"
   >
     {children}
   </Link>

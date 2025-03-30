@@ -7,7 +7,7 @@ const HowItWorks = () => {
     {
       icon: <LineChart className="w-10 h-10 text-finance-blue" />,
       title: "Portefeuille",
-      description: "Krijg inzicht in onze gespreide aandelenportefeuille, onze gemiddelde aankoopprijzen en het huidige resultaat.",
+      description: "Krijg inzicht in onze gespreide aandelenportefeuille, onze gemiddelde aankoopprijzen én het huidige resultaat.",
       link: "/portfolio"
     },
     {
@@ -31,11 +31,13 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-finance-gray" id="how-it-works">
+    <section className="py-16 md:py-24 bg-white" id="how-it-works">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Wat wij bieden</h2>
-          <p className="text-lg text-muted-foreground mb-8">Een overzicht van ons aanbod</p>
+          <p className="text-lg text-muted-foreground mb-8">
+            Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille toe en maak weloverwogen investeringen. Zie hieronder ons uitgebreide aanbod.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -58,6 +60,16 @@ const HowItWorks = () => {
               </Link>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Link 
+            to="/how-it-works"
+            className="text-finance-blue font-medium inline-flex items-center group text-lg"
+          >
+            Lees meer over ons aanbod
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

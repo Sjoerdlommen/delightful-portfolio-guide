@@ -1,6 +1,7 @@
 
 import { LineChart, BarChart, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const PortfolioPreview = () => {
   const portfolioData = [
@@ -13,7 +14,7 @@ const PortfolioPreview = () => {
   ];
 
   return (
-    <section className="section-padding bg-finance-gray py-24" id="portfolio">
+    <section className="section-padding bg-white py-24" id="portfolio">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 fade-in-left">
@@ -71,21 +72,17 @@ const PortfolioPreview = () => {
           </div>
           
           <div className="order-1 lg:order-2 fade-in-right">
-            <span className="inline-block px-3 py-1 rounded-full bg-finance-lightblue text-finance-blue text-sm font-medium mb-6">
-              Strategisch beleggen
-            </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Krijg inzicht in optimale portefeuillesamenstelling
+              Krijg inzicht in een optimale portefeuillesamenstelling
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Onze experts analyseren de markten en stellen gebalanceerde portefeuilles samen die passen bij jouw risicoprofiel en doelstellingen. Ontvang concrete aanbevelingen en blijf op de hoogte van belangrijke marktontwikkelingen.
+              Een goede spreiding in een investeringsportefeuille is belangrijk om risico's te minimaliseren en je kansen op een stabiel rendement te vergroten. Naast spreiding in diverse assets is het dus ook van belang om spreiding aan te brengen in je aandelenportefeuille, dit kan op diverse manieren:
             </p>
             <div className="space-y-4 mb-8">
               {[
-                "Gepersonaliseerde portefeuilleadviezen",
-                "Gedetailleerde sector- en aandeelenanalyses",
-                "Regelmatige portfolio-updates",
-                "Risicospreiding strategieën"
+                "Spreiding over sectoren",
+                "Spreiding over regio's en landen",
+                "Spreiding over marktkapitalisatie"
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
@@ -97,9 +94,11 @@ const PortfolioPreview = () => {
                 </div>
               ))}
             </div>
-            <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg transition-all">
-              Bekijk alle portefeuille opties
-            </Button>
+            <Link to="/subscribe">
+              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg transition-all">
+                Krijg inzage in onze aandelenportefeuille
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
