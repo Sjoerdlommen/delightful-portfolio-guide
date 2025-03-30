@@ -19,17 +19,17 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[6px] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[4px] ${
         isScrolled 
-          ? "bg-white/95 backdrop-blur-lg shadow-sm py-3 border-gray-300" 
-          : "bg-white py-5 border-gray-300"
+          ? "bg-white/95 backdrop-blur-lg shadow-sm py-2 border-gray-300" 
+          : "bg-white py-3 border-gray-300"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-16" />
+          <Link to="/" className="flex items-center bg-white">
+            <img src="/lovable-uploads/53513537-351b-49fb-a303-04818049ca98.png" alt="Aandelen onder de loep" className="h-16" />
           </Link>
 
           {/* Desktop Navigation */}

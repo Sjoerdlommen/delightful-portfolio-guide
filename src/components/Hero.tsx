@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="pt-32 pb-0 md:pt-40 md:pb-0 overflow-hidden">
+    <section className="pt-24 pb-0 md:pt-32 md:pb-0 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
             <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold leading-tight mb-6 max-w-md">
               <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
-              <span>investeren</span> met <span className="text-finance-blue">een</span> <span className="text-finance-blue">visie</span>!
+              <span>investeren</span> met <span className="text-black">een</span> <span className="text-finance-blue">visie</span>!
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-md">
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
@@ -28,7 +28,7 @@ const Hero = () => {
           
           <div className="lg:col-span-2">
             <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
-              <h3 className="absolute top-0 left-0 right-0 bg-finance-blue/80 text-white py-2 text-center font-medium">
+              <h3 className="absolute top-0 left-0 right-0 bg-finance-blue/80 text-white py-2 text-center font-medium z-10">
                 Welkom bij Aandelen Onder De Loep
               </h3>
               <div className="relative h-full">

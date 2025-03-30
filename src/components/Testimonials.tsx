@@ -8,46 +8,46 @@ const Testimonials = () => {
   
   const testimonials = [
     {
-      name: "Erik de Vries",
+      name: "Erik",
       rating: 5,
       text: "Ik ben al een paar maanden abonnee en ben ontzettend onder de indruk van de diepgaande analyses. Elke week leer ik iets nieuws over de markt. Ik vind het ook heel fijn om iedere week een video te ontvangen waarin wordt teruggeblikt op de week. Absolute aanrader!",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "EV"
+      initials: "E"
     },
     {
-      name: "Sanne Jansen",
+      name: "Sanne",
       rating: 5,
       text: "Wat een verademing om eindelijk een dienst te hebben die echt de tijd neemt om aandelen grondig te analyseren. Dankzij de uitgebreide rapporten en het kennisportaal heb ik veel meer inzicht gekregen in mijn beleggingsstrategie. Mijn rendement is er flink op vooruitgegaan!",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "SJ"
+      initials: "S"
     },
     {
-      name: "Mark Willems",
+      name: "Mark",
       rating: 5,
       text: "Het meest waardevolle voor mij is het inkijkje in de portefeuille. Hierdoor zie ik niet alleen welke aandelen interessant kunnen zijn, maar ook hoe een professionele belegger zijn posities opbouwt. Dit geeft mij enorm veel vertrouwen in mijn eigen keuzes!",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "MW"
+      initials: "M"
     },
     {
-      name: "Linda van Dijk",
+      name: "Linda",
       rating: 4,
       text: "Ik ben erg tevreden over de analyses en het kennisportaal. De uitleg is helder en goed onderbouwd. Ik zou het perfect vinden als er nog iets meer updates per week kwamen, maar verder echt een topservice!",
       image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "LD"
+      initials: "L"
     },
     {
-      name: "Kevin Maas",
+      name: "Kevin",
       rating: 5,
       text: "Als particuliere belegger is het soms lastig om door de ruis van het nieuws heen te kijken. 'Aandelen onder de loep' biedt precies wat ik nodig heb: objectieve en diepgaande informatie. Dankzij de analyses heb ik al een paar mooie winsten kunnen boeken!",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "KM"
+      initials: "K"
     },
     {
-      name: "Sophie Bakker",
+      name: "Sophie",
       rating: 5,
       text: "Het kennisportaal is een goudmijn voor iedereen die serieus wil beleggen. Ik heb al zoveel geleerd en voel me een stuk zelfverzekerder bij het maken van mijn keuzes. De abonnementskosten heb ik er al lang en breed uit!",
       image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80",
-      initials: "SB"
+      initials: "S"
     }
   ];
   
@@ -67,6 +67,10 @@ const Testimonials = () => {
       reviews.push(testimonials[index]);
     }
     return reviews;
+  };
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
   };
 
   return (
@@ -94,12 +98,28 @@ const Testimonials = () => {
               <p className="font-semibold text-gray-900">{testimonial.name}</p>
               
               <div className="absolute bottom-4 right-4">
-                <Avatar className="h-16 w-16 border-2 border-white shadow-sm">
+                <Avatar className="h-20 w-20 border-2 border-white shadow-sm">
                   <AvatarImage src={testimonial.image} alt={testimonial.name} />
                   <AvatarFallback>{testimonial.initials}</AvatarFallback>
                 </Avatar>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Navigation dots */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`h-3 w-3 rounded-full transition-all ${
+                index >= currentIndex && index < currentIndex + 3
+                  ? "bg-finance-blue"
+                  : "bg-gray-300"
+              }`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`Go to review ${index + 1}`}
+            />
           ))}
         </div>
       </div>
