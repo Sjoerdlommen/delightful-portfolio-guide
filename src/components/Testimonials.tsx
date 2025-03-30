@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Star } from "lucide-react";
+import { Star, ArrowLeft, ArrowRight } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Testimonials = () => {
@@ -69,23 +69,29 @@ const Testimonials = () => {
     return reviews;
   };
 
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-black">Wat anderen zeggen over</span><br />
-            <span className="text-finance-blue">Aandelen Onder De Loep</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            <span className="text-black block">Wat anderen zeggen over</span>
+            <span className="text-finance-blue mt-2 block">Aandelen Onder De Loep</span>
           </h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {getReviewsToShow().map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative">
+            <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative min-h-[250px]">
               <div className="flex mb-3">
                 {Array(testimonial.rating).fill(0).map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
@@ -94,11 +100,11 @@ const Testimonials = () => {
                   <Star key={i} className="h-5 w-5 text-gray-300" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
+              <p className="text-gray-700 mb-4 italic pr-16">"{testimonial.text}"</p>
               <p className="font-semibold text-gray-900">{testimonial.name}</p>
               
-              <div className="absolute bottom-4 right-4">
-                <Avatar className="h-20 w-20 border-2 border-white shadow-sm">
+              <div className="absolute bottom-6 right-6">
+                <Avatar className="h-16 w-16 border-2 border-white shadow-sm">
                   <AvatarImage src={testimonial.image} alt={testimonial.name} />
                   <AvatarFallback>{testimonial.initials}</AvatarFallback>
                 </Avatar>
@@ -107,20 +113,27 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Navigation dots */}
-        <div className="flex justify-center mt-8 space-x-2">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              className={`h-3 w-3 rounded-full transition-all ${
-                index >= currentIndex && index < currentIndex + 3
-                  ? "bg-finance-blue"
-                  : "bg-gray-300"
-              }`}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Go to review ${index + 1}`}
-            />
-          ))}
+        {/* Navigation controls */}
+        <div className="flex justify-center items-center mt-8 space-x-6">
+          <button
+            onClick={handlePrevious}
+            className="p-3 rounded-full bg-finance-blue text-white hover:bg-finance-blue/80 transition-colors"
+            aria-label="Previous testimonials"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+          
+          <div className="text-sm font-medium text-gray-500">
+            {currentIndex + 1} / {testimonials.length}
+          </div>
+          
+          <button
+            onClick={handleNext}
+            className="p-3 rounded-full bg-finance-blue text-white hover:bg-finance-blue/80 transition-colors"
+            aria-label="Next testimonials"
+          >
+            <ArrowRight className="h-5 w-5" />
+          </button>
         </div>
       </div>
     </section>

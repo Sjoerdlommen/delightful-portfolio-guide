@@ -17,7 +17,7 @@ const Hero = () => {
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/how-it-works">
+              <Link to="/how-it-works" onClick={() => window.scrollTo(0, 0)}>
                 <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
                   Start Vandaag
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -28,7 +28,7 @@ const Hero = () => {
           
           <div className="lg:col-span-2">
             <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
-              <h3 className="absolute top-0 left-0 right-0 bg-finance-blue/80 text-white py-2 text-center font-medium z-10">
+              <h3 className="w-full bg-finance-blue text-white py-2 px-4 text-center font-medium mb-2">
                 Welkom bij Aandelen Onder De Loep
               </h3>
               <div className="relative h-full">
