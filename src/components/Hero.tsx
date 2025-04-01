@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
@@ -27,11 +27,11 @@ const Hero = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <h3 className="text-black text-lg font-medium mb-3 text-center">
+            <h3 className="text-black text-lg font-medium mb-4 text-center">
               Welkom bij Aandelen Onder De Loep
             </h3>
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <div className="relative aspect-video">
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <div className="aspect-video">
                 <video 
                   className="w-full h-full object-cover rounded-xl"
                   controls

@@ -31,7 +31,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="how-it-works">
+    <section className="py-16 md:py-24" id="how-it-works">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Wat wij bieden</h2>
@@ -53,6 +53,7 @@ const HowItWorks = () => {
               <p className="text-muted-foreground mb-6">{feature.description}</p>
               <Link 
                 to={feature.link}
+                onClick={() => window.scrollTo(0, 0)}
                 className="text-finance-blue font-medium inline-flex items-center group"
               >
                 Meer informatie 
@@ -65,6 +66,7 @@ const HowItWorks = () => {
         <div className="text-center mt-12">
           <Link 
             to="/how-it-works"
+            onClick={() => window.scrollTo(0, 0)}
             className="text-finance-blue font-medium inline-flex items-center group text-lg"
           >
             Lees meer over ons aanbod
