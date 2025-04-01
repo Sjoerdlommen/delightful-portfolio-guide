@@ -19,17 +19,17 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[4px] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[3px] ${
         isScrolled 
           ? "bg-white/95 backdrop-blur-lg shadow-sm py-1 border-gray-300" 
-          : "bg-white py-2 border-gray-300"
+          : "bg-white py-1 border-gray-300"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src="/lovable-uploads/aae29d4d-e427-4748-bc8e-b288e3745e34.png" alt="Aandelen onder de loep" className="h-14" />
+          <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
+            <img src="/lovable-uploads/aae29d4d-e427-4748-bc8e-b288e3745e34.png" alt="Aandelen onder de loep" className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,10 +41,10 @@ const Header = () => {
             <NavLink to="/knowledge-portal">Kennisportaal</NavLink>
             <div className="ml-4 flex space-x-3">
               <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
-                <Link to="/login">Inloggen</Link>
+                <Link to="/login" onClick={() => window.scrollTo(0, 0)}>Inloggen</Link>
               </Button>
               <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
-                <Link to="/subscribe">Abonneren</Link>
+                <Link to="/subscribe" onClick={() => window.scrollTo(0, 0)}>Abonneren</Link>
               </Button>
             </div>
           </nav>
@@ -84,10 +84,10 @@ const Header = () => {
           </MobileNavLink>
           <div className="pt-6 flex flex-col space-y-3">
             <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
-              <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Inloggen</Link>
+              <Link to="/login" onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}>Inloggen</Link>
             </Button>
             <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
-              <Link to="/subscribe" onClick={() => setMobileMenuOpen(false)}>Abonneren</Link>
+              <Link to="/subscribe" onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}>Abonneren</Link>
             </Button>
           </div>
         </nav>

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Star, ArrowLeft, ArrowRight } from "lucide-react";
+import { Star } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Testimonials = () => {
@@ -69,16 +69,6 @@ const Testimonials = () => {
     return reviews;
   };
 
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -91,7 +81,7 @@ const Testimonials = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {getReviewsToShow().map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative min-h-[250px]">
+            <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative min-h-[280px]">
               <div className="flex mb-3">
                 {Array(testimonial.rating).fill(0).map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
@@ -100,11 +90,13 @@ const Testimonials = () => {
                   <Star key={i} className="h-5 w-5 text-gray-300" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 italic pr-16">"{testimonial.text}"</p>
-              <p className="font-semibold text-gray-900">{testimonial.name}</p>
+              <p className="text-gray-700 mb-6 italic">{`"${testimonial.text}"`}</p>
+              <div className="absolute bottom-6 left-6">
+                <p className="font-semibold text-gray-900">{testimonial.name}</p>
+              </div>
               
               <div className="absolute bottom-6 right-6">
-                <Avatar className="h-16 w-16 border-2 border-white shadow-sm">
+                <Avatar className="h-12 w-12 border-2 border-white shadow-sm">
                   <AvatarImage src={testimonial.image} alt={testimonial.name} />
                   <AvatarFallback>{testimonial.initials}</AvatarFallback>
                 </Avatar>
@@ -113,27 +105,20 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Navigation controls */}
-        <div className="flex justify-center items-center mt-8 space-x-6">
-          <button
-            onClick={handlePrevious}
-            className="p-3 rounded-full bg-finance-blue text-white hover:bg-finance-blue/80 transition-colors"
-            aria-label="Previous testimonials"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </button>
-          
-          <div className="text-sm font-medium text-gray-500">
-            {currentIndex + 1} / {testimonials.length}
-          </div>
-          
-          <button
-            onClick={handleNext}
-            className="p-3 rounded-full bg-finance-blue text-white hover:bg-finance-blue/80 transition-colors"
-            aria-label="Next testimonials"
-          >
-            <ArrowRight className="h-5 w-5" />
-          </button>
+        {/* Dots navigation */}
+        <div className="flex justify-center items-center mt-8 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full ${
+                index === currentIndex
+                  ? "bg-finance-blue"
+                  : "bg-gray-300 hover:bg-gray-400"
+              } transition-colors`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

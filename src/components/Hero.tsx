@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="pt-24 pb-0 md:pt-32 md:pb-0 overflow-hidden">
+    <section className="pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Link to="/how-it-works" onClick={() => window.scrollTo(0, 0)}>
                 <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
-                  Start Vandaag
+                  Bekijk hoe het werkt
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -27,13 +27,13 @@ const Hero = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
-              <h3 className="w-full text-black py-2 px-4 text-center font-medium mb-2">
-                Welkom bij Aandelen Onder De Loep
-              </h3>
-              <div className="relative h-full">
+            <h3 className="text-black text-lg font-medium mb-3 text-center">
+              Welkom bij Aandelen Onder De Loep
+            </h3>
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <div className="relative aspect-video">
                 <video 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                   controls
                   autoPlay
                   muted
