@@ -28,16 +28,17 @@ const Hero = () => {
           
           <div className="lg:col-span-2">
             <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-lg">
-              <h3 className="w-full bg-finance-blue text-white py-2 px-4 text-center font-medium mb-2">
+              <h3 className="w-full text-black py-2 px-4 text-center font-medium mb-2">
                 Welkom bij Aandelen Onder De Loep
               </h3>
               <div className="relative h-full">
                 <video 
                   className="w-full h-full object-cover"
                   controls
-                  poster="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                  autoPlay
+                  muted
                 >
-                  <source src="#" type="video/mp4" />
+                  <source src="https://yxukwhaowopkoutjbhwd.supabase.co/storage/v1/object/sign/aandelenonderdeloep/video1918957518.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhYW5kZWxlbm9uZGVyZGVsb2VwL3ZpZGVvMTkxODk1NzUxOC5tcDQiLCJpYXQiOjE3NDM1MTI3MzYsImV4cCI6MTkwMTE5MjczNn0.lZdo3XsLVr5TMnoV6Tqknv2h2zfo0Rewv2cFQREV5VU" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
