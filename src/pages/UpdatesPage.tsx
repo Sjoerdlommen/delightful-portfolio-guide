@@ -6,6 +6,34 @@ import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
 
 const UpdatesPage = () => {
+  // Sample video updates
+  const updates = [
+    {
+      id: 1,
+      title: "Weekupdate #26",
+      date: "28 juni 2023",
+      description: "Terugblik op de beurs en toelichting op onze recente beslissingen.",
+      duration: "15:23",
+      isPremium: true
+    },
+    {
+      id: 2,
+      title: "Weekupdate #25",
+      date: "21 juni 2023",
+      description: "Terugblik op de beurs en toelichting op onze recente beslissingen.",
+      duration: "14:45",
+      isPremium: true
+    },
+    {
+      id: 3,
+      title: "Weekupdate #24",
+      date: "14 juni 2023",
+      description: "Terugblik op de beurs en toelichting op onze recente beslissingen.",
+      duration: "16:10",
+      isPremium: true
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -32,8 +60,8 @@ const UpdatesPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow opacity-60">
+            {updates.map((update) => (
+              <div key={update.id} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow opacity-60">
                 <div className="relative aspect-video">
                   <img 
                     src={`https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80`}
@@ -44,19 +72,19 @@ const UpdatesPage = () => {
                     <Play className="h-12 w-12 text-white" />
                   </div>
                   <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                    15:23
+                    {update.duration}
                   </div>
                 </div>
                 <div className="p-4">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold">Weekupdate #{item}</h3>
-                    <span className="text-xs text-muted-foreground">{new Date().toLocaleDateString()}</span>
+                    <h3 className="font-semibold">{update.title}</h3>
+                    <span className="text-xs text-muted-foreground">{update.date}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Terugblik op de beurs en toelichting op onze recente beslissingen.
+                    {update.description}
                   </p>
                   <div className="mt-3">
-                    <span className="text-finance-blue text-sm cursor-not-allowed">Alleen voor abonnees</span>
+                    <span className="text-finance-blue text-sm font-medium cursor-not-allowed">Alleen voor abonnees</span>
                   </div>
                 </div>
               </div>
