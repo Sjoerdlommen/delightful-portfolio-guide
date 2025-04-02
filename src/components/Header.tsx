@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,6 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            <NavLink to="/how-it-works">Hoe het werkt</NavLink>
             <NavLink to="/portfolio">Portefeuille</NavLink>
             <NavLink to="/analyses">Analyses</NavLink>
             <NavLink to="/updates">Updates</NavLink>
@@ -67,9 +65,6 @@ const Header = () => {
         }`}
       >
         <nav className="flex flex-col p-6 space-y-6">
-          <MobileNavLink to="/how-it-works" onClick={() => setMobileMenuOpen(false)}>
-            Hoe het werkt
-          </MobileNavLink>
           <MobileNavLink to="/portfolio" onClick={() => setMobileMenuOpen(false)}>
             Portefeuille
           </MobileNavLink>
@@ -96,7 +91,6 @@ const Header = () => {
   );
 };
 
-// Desktop navigation link component without borders
 const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link
     to={to}
@@ -107,7 +101,6 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
   </Link>
 );
 
-// Mobile navigation link component
 const MobileNavLink = ({ 
   to, 
   children, 
