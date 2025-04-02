@@ -92,9 +92,6 @@ const Footer = () => {
             <Link to="/disclaimer" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Disclaimer
             </Link>
-            <Link to="/notifications" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
-              Mededelingen
-            </Link>
           </div>
         </div>
       </div>

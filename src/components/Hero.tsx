@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <h3 className="text-finance-blue text-2xl font-medium mb-4 text-center">
+            <h3 className="text-finance-blue text-xl font-medium mb-4 text-center">
               Welkom bij Aandelen Onder De Loep
             </h3>
             <div className="rounded-xl overflow-hidden shadow-lg">
