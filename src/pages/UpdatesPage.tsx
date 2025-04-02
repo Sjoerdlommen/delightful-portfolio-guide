@@ -4,8 +4,17 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const UpdatesPage = () => {
+  const [isSubscriber, setIsSubscriber] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in as subscriber
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    setIsSubscriber(user?.role === "subscriber");
+  }, []);
+
   // Sample video updates
   const updates = [
     {
@@ -47,21 +56,23 @@ const UpdatesPage = () => {
             De weekupdates worden op deze pagina geplaatst.
           </p>
           
-          <div className="bg-finance-gray/15 rounded-xl p-8 mb-10 text-center">
-            <h2 className="text-2xl font-semibold mb-4">Wekelijkse video-updates</h2>
-            <p className="mb-6 text-muted-foreground">
-              Word abonnee om toegang te krijgen tot onze wekelijkse video-updates.
-            </p>
-            <Link to="/subscribe">
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
-                Krijg toegang tot onze weekupdates
-              </Button>
-            </Link>
-          </div>
+          {!isSubscriber && (
+            <div className="bg-finance-gray/15 rounded-xl p-8 mb-10 text-center">
+              <h2 className="text-2xl font-semibold mb-4">Wekelijkse video-updates</h2>
+              <p className="mb-6 text-muted-foreground">
+                Word abonnee om toegang te krijgen tot onze wekelijkse video-updates.
+              </p>
+              <Link to="/subscribe">
+                <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
+                  Krijg toegang tot onze weekupdates
+                </Button>
+              </Link>
+            </div>
+          )}
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {updates.map((update) => (
-              <div key={update.id} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow opacity-60">
+              <div key={update.id} className={`border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${!isSubscriber ? 'opacity-60' : ''}`}>
                 <div className="relative aspect-video">
                   <img 
                     src={`https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80`}
@@ -69,7 +80,13 @@ const UpdatesPage = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <Play className="h-12 w-12 text-white" />
+                    {isSubscriber ? (
+                      <button className="h-12 w-12 text-white hover:scale-110 transition-transform">
+                        <Play className="h-12 w-12" />
+                      </button>
+                    ) : (
+                      <Play className="h-12 w-12 text-white" />
+                    )}
                   </div>
                   <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
                     {update.duration}
@@ -84,7 +101,9 @@ const UpdatesPage = () => {
                     {update.description}
                   </p>
                   <div className="mt-3">
-                    <span className="text-finance-blue text-sm font-medium cursor-not-allowed">Alleen voor abonnees</span>
+                    {!isSubscriber && (
+                      <span className="text-finance-blue text-sm font-medium cursor-not-allowed">Alleen voor abonnees</span>
+                    )}
                   </div>
                 </div>
               </div>

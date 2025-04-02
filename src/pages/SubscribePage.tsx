@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +12,7 @@ import Footer from "@/components/Footer";
 
 const SubscribePage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState<string>("half-year");
   const [gender, setGender] = useState<string | null>("mr");
   
@@ -29,16 +29,14 @@ const SubscribePage = () => {
   }, [location.state]);
   
   const onSubmit = (data: any) => {
-    console.log({ ...data, selectedPlan, gender });
+    // Gather form data for payment processing
+    const formData = { ...data, selectedPlan, gender };
     
-    // Show success toast
-    toast({
-      title: "Abonnement geactiveerd",
-      description: "Bedankt en welkom bij Aandelen Onder De Loep, u ontvangt binnen enkele minuten een bevestigingsmail.",
-      duration: 5000,
-    });
+    // Store data in session storage for the payment page
+    sessionStorage.setItem('subscriptionData', JSON.stringify(formData));
     
-    // Subscription processing logic would go here
+    // Redirect to payment page
+    navigate('/payment', { state: { subscriptionData: formData } });
   };
   
   return (
@@ -194,7 +192,7 @@ const SubscribePage = () => {
                   type="submit" 
                   className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6"
                 >
-                  Abonneren
+                  Naar betaling
                 </Button>
               </div>
             </form>

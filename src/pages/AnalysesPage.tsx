@@ -4,8 +4,17 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const AnalysesPage = () => {
+  const [isSubscriber, setIsSubscriber] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in as subscriber
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    setIsSubscriber(user?.role === "subscriber");
+  }, []);
+
   // Example analyses with the first one using the provided video URL
   const analyses = [
     {
@@ -48,34 +57,48 @@ const AnalysesPage = () => {
             wij onze kooporders gaan doorvoeren. Wij laten de koers dus naar onze entries bewegen.
           </p>
           
-          <div className="bg-finance-gray/15 rounded-xl p-8 mb-10 text-center">
-            <h2 className="text-2xl font-semibold mb-4">Krijg toegang tot onze analyses</h2>
-            <p className="mb-6 text-muted-foreground">
-              Word abonnee om toegang te krijgen tot al onze diepgaande analyses en inzichten.
-            </p>
-            <Link to="/subscribe">
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
-                Krijg toegang tot al onze uitgebreide analyses
-              </Button>
-            </Link>
-          </div>
+          {!isSubscriber && (
+            <div className="bg-finance-gray/15 rounded-xl p-8 mb-10 text-center">
+              <h2 className="text-2xl font-semibold mb-4">Krijg toegang tot onze analyses</h2>
+              <p className="mb-6 text-muted-foreground">
+                Word abonnee om toegang te krijgen tot al onze diepgaande analyses en inzichten.
+              </p>
+              <Link to="/subscribe">
+                <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white">
+                  Krijg toegang tot al onze uitgebreide analyses
+                </Button>
+              </Link>
+            </div>
+          )}
           
           <div className="space-y-8">
             {analyses.map((analysis) => (
-              <div key={analysis.id} className="border rounded-lg shadow-sm hover:shadow-md transition-shadow opacity-60">
+              <div key={analysis.id} className={`border rounded-lg shadow-sm hover:shadow-md transition-shadow ${!isSubscriber ? 'opacity-60' : ''}`}>
                 {analysis.videoUrl ? (
                   <div className="relative aspect-video rounded-t-lg overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                      <Play className="h-16 w-16 text-white opacity-80" />
-                      <span className="absolute text-white font-medium bg-black/70 px-3 py-1 rounded-md">
-                        Alleen voor abonnees
-                      </span>
-                    </div>
-                    <img 
-                      src={`https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80`}
-                      alt="Video thumbnail" 
-                      className="w-full h-full object-cover"
-                    />
+                    {isSubscriber ? (
+                      <video
+                        className="w-full h-full object-cover"
+                        controls
+                        src={analysis.videoUrl}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                          <Play className="h-16 w-16 text-white opacity-80" />
+                          <span className="absolute text-white font-medium bg-black/70 px-3 py-1 rounded-md">
+                            Alleen voor abonnees
+                          </span>
+                        </div>
+                        <img 
+                          src={`https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80`}
+                          alt="Video thumbnail" 
+                          className="w-full h-full object-cover"
+                        />
+                      </>
+                    )}
                   </div>
                 ) : null}
                 <div className="p-6">
@@ -87,9 +110,11 @@ const AnalysesPage = () => {
                     {analysis.description}
                   </p>
                   <div className="mt-4">
-                    <span className="text-finance-blue cursor-not-allowed font-medium">
-                      Alleen voor abonnees
-                    </span>
+                    {!isSubscriber && (
+                      <span className="text-finance-blue cursor-not-allowed font-medium">
+                        Alleen voor abonnees
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
