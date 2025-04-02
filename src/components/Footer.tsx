@@ -26,12 +26,20 @@ const Footer = () => {
     },
   ];
 
+  // Functie om naar de bovenkant van de pagina te scrollen
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6" onClick={scrollToTop}>
               <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-16" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -59,6 +67,7 @@ const Footer = () => {
                     <Link
                       to={link.href}
                       className="text-muted-foreground hover:text-finance-blue transition-colors flex items-center"
+                      onClick={scrollToTop}
                     >
                       {link.name}
                     </Link>
@@ -74,13 +83,13 @@ const Footer = () => {
             © {currentYear} Aandelen onder de loep. Alle rechten voorbehouden.
           </p>
           <div className="flex space-x-6">
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
               Voorwaarden
             </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
               Privacybeleid
             </Link>
-            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
               Cookies
             </Link>
           </div>

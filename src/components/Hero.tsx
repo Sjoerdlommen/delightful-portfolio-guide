@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
-            <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold leading-tight mb-6 max-w-md">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-md">
               <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
               <span>investeren</span> met <span className="text-black">een</span> <span className="text-finance-blue">visie</span>!
             </h1>
@@ -17,7 +17,7 @@ const Hero = () => {
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/how-it-works" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/subscribe" onClick={() => window.scrollTo(0, 0)}>
                 <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
                   Bekijk hoe het werkt
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <h3 className="text-black text-lg font-medium mb-4 text-center">
+            <h3 className="text-finance-blue text-2xl font-medium mb-4 text-center">
               Welkom bij Aandelen Onder De Loep
             </h3>
             <div className="rounded-xl overflow-hidden shadow-lg">
