@@ -24,7 +24,7 @@ const Index = () => {
         <div className="bg-white">
           <NewsletterSignup />
         </div>
-        <div className="bg-gradient-finance">
+        <div className="bg-gray-100">
           <Testimonials />
         </div>
       </main>
