@@ -5,19 +5,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import HowItWorksPage from "./pages/HowItWorksPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import AnalysesPage from "./pages/AnalysesPage";
 import UpdatesPage from "./pages/UpdatesPage";
 import KnowledgePortalPage from "./pages/KnowledgePortalPage";
 import LoginPage from "./pages/LoginPage";
 import SubscribePage from "./pages/SubscribePage";
-import PaymentPage from "./pages/PaymentPage";
-import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import ContactPage from "./pages/ContactPage";
 import FAQPage from "./pages/FAQPage";
-import DisclaimerPage from "./pages/DisclaimerPage";
-import CookiesPage from "./pages/CookiesPage";
-import NotificationsPage from "./pages/NotificationsPage";
 import NotFound from "./pages/NotFound";
 
 // Create a new client with stable options
@@ -36,19 +32,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/analyses" element={<AnalysesPage />} />
           <Route path="/updates" element={<UpdatesPage />} />
           <Route path="/knowledge-portal" element={<KnowledgePortalPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/subscribe" element={<SubscribePage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
-          <Route path="/disclaimer" element={<DisclaimerPage />} />
-          <Route path="/cookies" element={<CookiesPage />} />
-          <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/plans" element={<SubscribePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -5,10 +5,6 @@ import { Instagram, Linkedin } from "lucide-react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
-  const handleLinkClick = () => {
-    window.scrollTo(0, 0);
-  };
-  
   const footerLinks = [
     {
       title: "Beleggen",
@@ -26,7 +22,6 @@ const Footer = () => {
         { name: "Abonneren", href: "/subscribe" },
         { name: "Contact", href: "/contact" },
         { name: "FAQ", href: "/faq" },
-        { name: "Mededelingen", href: "/notifications" },
       ],
     },
   ];
@@ -36,7 +31,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <Link to="/" onClick={handleLinkClick} className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6">
               <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-16" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -63,7 +58,6 @@ const Footer = () => {
                   <li key={linkIdx}>
                     <Link
                       to={link.href}
-                      onClick={handleLinkClick}
                       className="text-muted-foreground hover:text-finance-blue transition-colors flex items-center"
                     >
                       {link.name}
@@ -79,18 +73,15 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             © {currentYear} Aandelen onder de loep. Alle rechten voorbehouden.
           </p>
-          <div className="flex flex-wrap space-x-4">
-            <Link to="/terms" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+          <div className="flex space-x-6">
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Voorwaarden
             </Link>
-            <Link to="/privacy" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Privacybeleid
             </Link>
-            <Link to="/cookies" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
+            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
               Cookies
-            </Link>
-            <Link to="/disclaimer" onClick={handleLinkClick} className="text-sm text-muted-foreground hover:text-finance-blue transition-colors">
-              Disclaimer
             </Link>
           </div>
         </div>

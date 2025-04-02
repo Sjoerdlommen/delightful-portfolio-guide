@@ -1,172 +1,139 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { useToast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  
-  const { toast } = useToast();
-  const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Here you would normally implement actual authentication logic
-      // For now, we simulate a login process
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Login successful
-      toast({
-        title: "Ingelogd",
-        description: "U bent succesvol ingelogd.",
-      });
-      
-      // Store user info in localStorage for demo purposes
-      const user = { email, role: "subscriber" };
-      localStorage.setItem("user", JSON.stringify(user));
-      
-      // Redirect to homepage
-      navigate("/");
-    } catch (err) {
-      setError("Er is een fout opgetreden bij het inloggen. Controleer uw gegevens en probeer het opnieuw.");
-    } finally {
-      setIsLoading(false);
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: ""
     }
-  };
-  
-  const handleDemoLogin = async () => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Simulate a login process
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Login successful
-      toast({
-        title: "Demo account ingelogd",
-        description: "U bent succesvol ingelogd met het demo account.",
-      });
-      
-      // Store demo user info in localStorage
-      const demoUser = { email: "demo@aandelenonderdeloep.nl", role: "subscriber" };
-      localStorage.setItem("user", JSON.stringify(demoUser));
-      
-      // Redirect to homepage
-      navigate("/");
-    } catch (err) {
-      setError("Er is een fout opgetreden bij het inloggen. Probeer het later opnieuw.");
-    } finally {
-      setIsLoading(false);
-    }
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    // Authentication logic would go here
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
-      <main className="flex-grow flex items-center justify-center py-12">
-        <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-2xl shadow-lg">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold">Inloggen bij Aandelen Onder De Loep</h1>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Log in om toegang te krijgen tot al onze diensten
-            </p>
+      <main className="flex-grow flex items-center justify-center px-4 py-24">
+        <div className="w-full max-w-md">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div className="mb-8 text-center">
+              <h1 className="text-2xl font-bold text-gray-900">Inloggen</h1>
+              <p className="text-sm text-gray-500 mt-2">
+                Log in om toegang te krijgen tot je account
+              </p>
+            </div>
+            
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel htmlFor="email" className="text-gray-700">E-mailadres: *</FormLabel>
+                      <FormControl>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          required 
+                          className="w-full p-3 border border-gray-300 rounded-md" 
+                          placeholder="naam@voorbeeld.nl" 
+                          {...field} 
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel htmlFor="password" className="text-gray-700">Wachtwoord: *</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input 
+                            id="password" 
+                            type={showPassword ? "text" : "password"} 
+                            required 
+                            className="w-full p-3 border border-gray-300 rounded-md pr-10" 
+                            {...field} 
+                          />
+                          <button
+                            type="button"
+                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? (
+                              <EyeOffIcon className="h-5 w-5" />
+                            ) : (
+                              <EyeIcon className="h-5 w-5" />
+                            )}
+                          </button>
+                        </div>
+                      </FormControl>
+                      <div className="mt-1">
+                        <Link to="/forgot-password" className="text-sm text-finance-blue hover:underline">
+                          Wachtwoord vergeten
+                        </Link>
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="remember"
+                    checked={rememberMe}
+                    onChange={() => setRememberMe(!rememberMe)}
+                    className="h-4 w-4 text-finance-blue border-gray-300 rounded"
+                  />
+                  <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
+                    Onthoud mijn gegevens
+                  </label>
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full py-6 bg-finance-blue hover:bg-finance-blue/90 text-white font-medium"
+                >
+                  Inloggen
+                </Button>
+              </form>
+            </Form>
+            
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-700">
+                Heb je nog geen account?{" "}
+                <Link to="/subscribe" className="text-finance-blue font-medium hover:underline">
+                  Abonneren
+                </Link>
+              </p>
+            </div>
           </div>
-
-          {error && (
-            <Alert variant="destructive">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-
-          <form className="space-y-6" onSubmit={handleLogin}>
-            <div className="space-y-2">
-              <Label htmlFor="email">E-mailadres</Label>
-              <Input 
-                id="email" 
-                type="email" 
-                placeholder="naam@voorbeeld.nl" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Wachtwoord</Label>
-                <a href="#" className="text-sm text-finance-blue hover:underline">
-                  Wachtwoord vergeten?
-                </a>
-              </div>
-              <Input 
-                id="password" 
-                type="password" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <Checkbox 
-                id="rememberMe" 
-                checked={rememberMe} 
-                onCheckedChange={(checked) => setRememberMe(checked as boolean)} 
-              />
-              <Label htmlFor="rememberMe" className="text-sm cursor-pointer">
-                Onthoud mij
-              </Label>
-            </div>
-
-            <Button 
-              type="submit" 
-              className="w-full bg-finance-blue hover:bg-finance-blue/90 text-white"
-              disabled={isLoading}
-            >
-              {isLoading ? "Bezig met inloggen..." : "Inloggen"}
-            </Button>
-          </form>
           
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-muted-foreground">Of</span>
-            </div>
+          <div className="mt-8 text-center text-sm text-gray-500">
+            <Link to="/privacy" className="hover:underline">Privacy- en Cookiebeleid</Link>
+            <p className="mt-2">© Alle rechten voorbehouden</p>
           </div>
-
-          <Button 
-            type="button" 
-            className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800"
-            onClick={handleDemoLogin}
-            disabled={isLoading}
-          >
-            Inloggen met demo account
-          </Button>
-          
-          <p className="text-center text-sm text-muted-foreground">
-            Nog geen account?{" "}
-            <a href="/subscribe" className="text-finance-blue hover:underline">
-              Abonneer nu
-            </a>
-          </p>
         </div>
       </main>
       <Footer />
