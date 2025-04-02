@@ -1,7 +1,5 @@
 
 import { LineChart, BarChart, ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const PortfolioPreview = () => {
   const portfolioData = [
@@ -94,11 +92,7 @@ const PortfolioPreview = () => {
                 </div>
               ))}
             </div>
-            <Link to="/subscribe">
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg transition-all">
-                Krijg inzage in onze aandelenportefeuille
-              </Button>
-            </Link>
+            {/* Removed the button that was here */}
           </div>
         </div>
       </div>
