@@ -11,8 +11,12 @@ import UpdatesPage from "./pages/UpdatesPage";
 import KnowledgePortalPage from "./pages/KnowledgePortalPage";
 import LoginPage from "./pages/LoginPage";
 import SubscribePage from "./pages/SubscribePage";
+import PaymentPage from "./pages/PaymentPage";
 import ContactPage from "./pages/ContactPage";
 import FAQPage from "./pages/FAQPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
+import CookiesPage from "./pages/CookiesPage";
+import MededelingenPage from "./pages/MededelingenPage";
 import NotFound from "./pages/NotFound";
 
 // Create a new client with stable options
@@ -37,8 +41,13 @@ const App = () => (
           <Route path="/knowledge-portal" element={<KnowledgePortalPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/subscribe" element={<SubscribePage />} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/terms" element={<DisclaimerPage />} />
+          <Route path="/privacy" element={<DisclaimerPage />} />
+          <Route path="/cookies" element={<CookiesPage />} />
+          <Route path="/mededelingen" element={<MededelingenPage />} />
           <Route path="/plans" element={<SubscribePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

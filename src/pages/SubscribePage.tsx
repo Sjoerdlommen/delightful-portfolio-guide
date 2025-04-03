@@ -1,18 +1,17 @@
-
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const SubscribePage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState<string>("half-year");
   const [gender, setGender] = useState<string | null>("mr");
   
@@ -31,14 +30,13 @@ const SubscribePage = () => {
   const onSubmit = (data: any) => {
     console.log({ ...data, selectedPlan, gender });
     
-    // Show success toast
-    toast({
-      title: "Abonnement geactiveerd",
-      description: "Bedankt en welkom bij Aandelen Onder De Loep, u ontvangt binnen enkele minuten een bevestigingsmail.",
-      duration: 5000,
+    // Navigate to payment page with subscriber data
+    navigate('/payment', {
+      state: {
+        subscriberData: { ...data, gender },
+        selectedPlan
+      }
     });
-    
-    // Subscription processing logic would go here
   };
   
   return (
@@ -71,7 +69,7 @@ const SubscribePage = () => {
               
               <div className="border-b border-gray-200 pb-6">
                 <Label htmlFor="actionCode" className="text-gray-700 mb-1">Actiecode:</Label>
-                <Input id="actionCode" className="max-w-md" />
+                <Input id="actionCode" className="max-w-md" {...register("actionCode")} />
               </div>
               
               <div className="border-b border-gray-200 pb-6">
@@ -194,7 +192,7 @@ const SubscribePage = () => {
                   type="submit" 
                   className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6"
                 >
-                  Abonneren
+                  Naar betaling
                 </Button>
               </div>
             </form>

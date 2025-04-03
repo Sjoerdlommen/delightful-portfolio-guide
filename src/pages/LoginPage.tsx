@@ -1,18 +1,20 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
+import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm({
     defaultValues: {
@@ -24,6 +26,31 @@ const LoginPage = () => {
   const onSubmit = (data: any) => {
     console.log(data);
     // Authentication logic would go here
+    toast({
+      title: "Succesvol ingelogd",
+      description: "U bent nu ingelogd bij Aandelen Onder De Loep",
+    });
+    
+    navigate('/portfolio');
+  };
+
+  const handleDemoLogin = (type: 'subscriber' | 'non-subscriber') => {
+    // Here we would simulate logging in with a demo account
+    const demoDetails = type === 'subscriber' 
+      ? { email: "demo-abonnee@voorbeeld.nl", password: "demo-password" } 
+      : { email: "demo-geen-abonnee@voorbeeld.nl", password: "demo-password" };
+    
+    console.log(`Demo login as ${type} with:`, demoDetails);
+    
+    // Set demo state in localStorage to maintain demo status
+    localStorage.setItem('demoUserType', type);
+    
+    toast({
+      title: `Demo ingelogd als ${type === 'subscriber' ? 'abonnee' : 'niet-abonnee'}`,
+      description: "U kunt nu het verschil in functionaliteit ervaren",
+    });
+    
+    navigate('/portfolio');
   };
 
   return (
@@ -119,6 +146,26 @@ const LoginPage = () => {
                 </Button>
               </form>
             </Form>
+
+            <div className="mt-6 pt-6 border-t border-gray-100">
+              <h3 className="text-sm font-medium text-gray-700 mb-4">Demo accounts</h3>
+              <div className="flex flex-col space-y-3">
+                <Button
+                  variant="outline"
+                  className="py-2 text-finance-blue border-finance-blue hover:bg-finance-blue/10"
+                  onClick={() => handleDemoLogin('subscriber')}
+                >
+                  Login als demo abonnee
+                </Button>
+                <Button
+                  variant="outline"
+                  className="py-2 text-finance-blue border-finance-blue hover:bg-finance-blue/10"
+                  onClick={() => handleDemoLogin('non-subscriber')}
+                >
+                  Login als demo niet-abonnee
+                </Button>
+              </div>
+            </div>
             
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-700">

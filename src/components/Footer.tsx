@@ -67,7 +67,7 @@ const Footer = () => {
                     <Link
                       to={link.href}
                       className="text-muted-foreground hover:text-finance-blue transition-colors flex items-center"
-                      onClick={scrollToTop}
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       {link.name}
                     </Link>
@@ -83,14 +83,17 @@ const Footer = () => {
             © {currentYear} Aandelen onder de loep. Alle rechten voorbehouden.
           </p>
           <div className="flex space-x-6">
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
               Voorwaarden
             </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
               Privacybeleid
             </Link>
-            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={scrollToTop}>
+            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
               Cookies
+            </Link>
+            <Link to="/mededelingen" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
+              Mededelingen
             </Link>
           </div>
         </div>

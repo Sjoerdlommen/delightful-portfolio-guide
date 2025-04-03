@@ -4,12 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const scrollToHowItWorks = () => {
+    const howItWorksSection = document.getElementById('plans');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-md">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 max-w-md">
               <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
               <span>investeren</span> met <span className="text-black">een</span> <span className="text-finance-blue">visie</span>!
             </h1>
@@ -17,19 +24,22 @@ const Hero = () => {
               Krijg toegang tot onze huidige portefeuille, uitgebreide analyses, video-updates én de kennisportaal.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/subscribe" onClick={() => window.scrollTo(0, 0)}>
-                <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group">
-                  Bekijk hoe het werkt
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
+              <Button 
+                className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6 rounded-lg text-base transition-all group"
+                onClick={scrollToHowItWorks}
+              >
+                Wat wij bieden
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
             </div>
           </div>
           
           <div className="lg:col-span-2">
-            <h3 className="text-finance-blue text-2xl font-medium mb-4 text-center">
-              Welkom bij Aandelen Onder De Loep
-            </h3>
+            <div className="flex items-center justify-center mb-4">
+              <h3 className="text-lg font-medium">
+                <span className="text-black">Welkom bij</span> <span className="text-finance-blue">Aandelen Onder De Loep</span>
+              </h3>
+            </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
               <div className="aspect-video">
                 <video 
