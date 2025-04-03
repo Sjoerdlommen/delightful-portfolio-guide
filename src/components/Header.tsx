@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -28,7 +28,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
-            <img src="/lovable-uploads/aae29d4d-e427-4748-bc8e-b288e3745e34.png" alt="Aandelen onder de loep" className="h-12" />
+            <img src="/lovable-uploads/logo.png" alt="Aandelen onder de loep" className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}

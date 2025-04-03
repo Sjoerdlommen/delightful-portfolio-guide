@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
 
@@ -40,7 +39,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6" onClick={scrollToTop}>
-              <img src="/lovable-uploads/b4d25ca2-6d06-44dd-86c2-22ceeac5eb11.png" alt="Aandelen onder de loep" className="h-16" />
+              <img src="/lovable-uploads/logo.png" alt="Aandelen onder de loep" className="h-16" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
               Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille en maak weloverwogen investeringen.
