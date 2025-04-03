@@ -25,7 +25,6 @@ const Footer = () => {
     },
   ];
 
-  // Functie om naar de bovenkant van de pagina te scrollen
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -39,7 +38,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6" onClick={scrollToTop}>
-              <img src="/lovable-uploads/logo.png" alt="Aandelen onder de loep" className="h-16" />
+              <img src="/lovable-uploads/589dec03-34e0-4cda-aa46-0d26442b247d.png" alt="Aandelen onder de loep" className="h-16" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
               Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille en maak weloverwogen investeringen.

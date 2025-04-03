@@ -28,7 +28,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
-            <img src="/lovable-uploads/logo.png" alt="Aandelen onder de loep" className="h-12" />
+            <img src="/lovable-uploads/589dec03-34e0-4cda-aa46-0d26442b247d.png" alt="Aandelen onder de loep" className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}
