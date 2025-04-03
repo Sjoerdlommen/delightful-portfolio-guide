@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   const scrollToHowItWorks = () => {
-    const howItWorksSection = document.getElementById('plans');
+    const howItWorksSection = document.getElementById('how-it-works');
     if (howItWorksSection) {
       howItWorksSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -16,8 +16,8 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 max-w-md">
-              <span className="text-finance-blue">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 max-w-md">
+              <span className="text-black">Analyseren</span> met <span className="text-finance-blue">precisie</span>,<br/>
               <span>investeren</span> met <span className="text-black">een</span> <span className="text-finance-blue">visie</span>!
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-md">

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -20,15 +21,15 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[3px] ${
         isScrolled 
-          ? "bg-white/95 backdrop-blur-lg shadow-sm py-1 border-gray-300" 
-          : "bg-white py-1 border-gray-300"
+          ? "bg-white/95 backdrop-blur-lg shadow-sm py-2 border-gray-300" 
+          : "bg-white py-3 border-gray-300"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
-            <img src="/lovable-uploads/589dec03-34e0-4cda-aa46-0d26442b247d.png" alt="Aandelen onder de loep" className="h-12" />
+            <img src="/lovable-uploads/589dec03-34e0-4cda-aa46-0d26442b247d.png" alt="Aandelen onder de loep" className="h-14" />
           </Link>
 
           {/* Desktop Navigation */}

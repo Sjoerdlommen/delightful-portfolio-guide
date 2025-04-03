@@ -6,13 +6,15 @@ import { Input } from "@/components/ui/input";
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Email submitted:", email);
+    console.log("Form submitted:", { name, email });
     // Reset form
     setEmail("");
+    setName("");
     // Show success message or toast notification
   };
 
@@ -58,7 +60,10 @@ const NewsletterSignup = () => {
                     id="name" 
                     type="text" 
                     placeholder="Uw naam" 
-                    required 
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full p-3 rounded-md border"
                   />
                 </div>
                 <div>
@@ -72,11 +77,12 @@ const NewsletterSignup = () => {
                     required 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="w-full p-3 rounded-md border"
                   />
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-finance-blue hover:bg-finance-blue/90 text-white py-6 mt-4"
+                  className="w-full bg-finance-blue hover:bg-finance-blue/90 text-white py-6 mt-4 flex items-center justify-center"
                 >
                   Verzenden
                   <ArrowRight className="ml-2 h-4 w-4" />

@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import PortfolioPreview from "@/components/PortfolioPreview";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -42,18 +43,9 @@ const PortfolioPage = () => {
             </div>
           </div>
           
-          {/* Liever eerst een inkijkje section */}
-          <div className="max-w-4xl mx-auto mt-16 border border-gray-200 rounded-xl bg-white p-6 md:p-8 shadow-sm">
-            <h2 className="text-2xl font-semibold mb-2">Liever eerst een inkijkje?</h2>
-            <p className="text-muted-foreground mb-6">
-              Download hier gratis een van onze recente analyses en ontdek hoe wij aandelen beoordelen en analyseren.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-finance-blue hover:bg-finance-blue/90 text-white px-6 py-6">
-                Download gratis analyse
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
+          {/* Replace with proper Newsletter signup */}
+          <div className="mt-16">
+            <NewsletterSignup />
           </div>
         </div>
       </main>
