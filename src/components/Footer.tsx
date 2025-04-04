@@ -85,7 +85,7 @@ const Footer = () => {
               Voorwaarden
             </Link>
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
-              Privacybeleid
+              Privacyverklaring
             </Link>
             <Link to="/cookies" className="text-sm text-muted-foreground hover:text-finance-blue transition-colors" onClick={() => window.scrollTo(0, 0)}>
               Cookies

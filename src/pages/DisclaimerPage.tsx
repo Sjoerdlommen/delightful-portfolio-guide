@@ -1,7 +1,7 @@
-
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const DisclaimerPage = () => {
   useEffect(() => {
@@ -44,6 +44,7 @@ const DisclaimerPage = () => {
               <li>Het voldoen aan wettelijke en regelgevende verplichtingen.</li>
             </ul>
             <p>U heeft het recht om schriftelijk en kosteloos bezwaar te maken tegen het gebruik van uw persoonsgegevens voor direct marketing.</p>
+            <p>Voor informatie over hoe wij omgaan met uw persoonsgegevens, verwijzen wij u naar onze <Link to="/privacy" className="text-finance-blue hover:underline">Privacyverklaring</Link>.</p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">7. Intellectuele Eigendom</h2>
             <p>Alle content op deze website, waaronder teksten, analyses, logo's en grafisch materiaal, is eigendom van Aandelen Onder De Loep en mag niet zonder schriftelijke toestemming worden gereproduceerd, verspreid of commercieel gebruikt.</p>
