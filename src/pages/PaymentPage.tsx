@@ -29,11 +29,11 @@ const PaymentPage = () => {
   const getPlanDetails = () => {
     switch (selectedPlan) {
       case "half-year":
-        return { name: "Basis abonnement (6 maanden)", price: "€ 90", monthly: "€ 15 per maand" };
+        return { name: "Basis abonnement (6 maanden)", price: "€ 105", monthly: "€ 17,50 per maand" };
       case "year":
-        return { name: "Plus abonnement (1 jaar)", price: "€ 150", monthly: "€ 12,50 per maand" };
+        return { name: "Plus abonnement (1 jaar)", price: "€ 180", monthly: "€ 15 per maand" };
       case "two-year":
-        return { name: "Premium abonnement (2 jaar)", price: "€ 240", monthly: "€ 10 per maand" };
+        return { name: "Premium abonnement (2 jaar)", price: "€ 300", monthly: "€ 12,50 per maand" };
       default:
         return { name: "Onbekend abonnement", price: "€ 0", monthly: "€ 0 per maand" };
     }

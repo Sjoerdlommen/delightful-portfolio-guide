@@ -8,7 +8,7 @@ const SubscriptionPlans = () => {
     {
       name: "Basis Abonnement",
       duration: "6 maanden",
-      price: "€15",
+      price: "€17,50",
       period: "per maand",
       description: "Perfect voor beginnende beleggers",
       features: [
@@ -19,13 +19,13 @@ const SubscriptionPlans = () => {
       ],
       isPopular: false,
       buttonText: "Kies Basis",
-      total: 90,
+      total: 105,
       planId: "half-year"
     },
     {
       name: "Plus Abonnement",
       duration: "1 jaar",
-      price: "€12,50",
+      price: "€15",
       period: "per maand",
       description: "€2,50 korting per maand t.o.v. Basis",
       features: [
@@ -37,13 +37,13 @@ const SubscriptionPlans = () => {
       ],
       isPopular: true,
       buttonText: "Kies Plus",
-      total: 150,
+      total: 180,
       planId: "year"
     },
     {
       name: "Premium Abonnement",
       duration: "2 jaar",
-      price: "€10",
+      price: "€12,50",
       period: "per maand",
       description: "€5 korting per maand t.o.v. Basis",
       features: [
@@ -56,7 +56,7 @@ const SubscriptionPlans = () => {
       ],
       isPopular: false,
       buttonText: "Kies Premium",
-      total: 240,
+      total: 300,
       planId: "two-year"
     }
   ];

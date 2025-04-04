@@ -17,20 +17,17 @@ const SubscribePage = () => {
   
   const { register, handleSubmit, formState: { errors } } = useForm();
   
-  // Handle the state from the subscription button click
   useEffect(() => {
     if (location.state && location.state.plan) {
       setSelectedPlan(location.state.plan);
     }
     
-    // Scroll to top
     window.scrollTo(0, 0);
   }, [location.state]);
   
   const onSubmit = (data: any) => {
     console.log({ ...data, selectedPlan, gender });
     
-    // Navigate to payment page with subscriber data
     navigate('/payment', {
       state: {
         subscriberData: { ...data, gender },
@@ -54,15 +51,15 @@ const SubscribePage = () => {
                 <RadioGroup value={selectedPlan} onValueChange={setSelectedPlan} className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="half-year" id="half-year" />
-                    <Label htmlFor="half-year" className="cursor-pointer">Basis abonnement (6 maanden) voor € 90 - € 15 per maand</Label>
+                    <Label htmlFor="half-year" className="cursor-pointer">Basis abonnement (6 maanden) voor € 105 - € 17,50 per maand</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="year" id="year" />
-                    <Label htmlFor="year" className="cursor-pointer">Plus abonnement (1 jaar) voor € 150 - € 12,50 per maand</Label>
+                    <Label htmlFor="year" className="cursor-pointer">Plus abonnement (1 jaar) voor € 180 - € 15 per maand</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="two-year" id="two-year" />
-                    <Label htmlFor="two-year" className="cursor-pointer">Premium abonnement (2 jaar) voor € 240 - € 10 per maand</Label>
+                    <Label htmlFor="two-year" className="cursor-pointer">Premium abonnement (2 jaar) voor € 300 - € 12,50 per maand</Label>
                   </div>
                 </RadioGroup>
               </div>
