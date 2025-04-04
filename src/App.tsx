@@ -15,6 +15,7 @@ import PaymentPage from "./pages/PaymentPage";
 import ContactPage from "./pages/ContactPage";
 import FAQPage from "./pages/FAQPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import CookiesPage from "./pages/CookiesPage";
 import MededelingenPage from "./pages/MededelingenPage";
 import NotFound from "./pages/NotFound";
@@ -45,7 +46,7 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/terms" element={<DisclaimerPage />} />
-          <Route path="/privacy" element={<DisclaimerPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/cookies" element={<CookiesPage />} />
           <Route path="/mededelingen" element={<MededelingenPage />} />
           <Route path="/plans" element={<SubscribePage />} />
