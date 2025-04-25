@@ -70,10 +70,10 @@ const LoginPage = () => {
     setIsLoading(true);
     
     try {
-      // Demo credentials based on user type
+      // Using valid email formats for demo accounts
       const demoDetails = type === 'subscriber' 
-        ? { email: "demo-abonnee@voorbeeld.nl", password: "demo-password" } 
-        : { email: "demo-geen-abonnee@voorbeeld.nl", password: "demo-password" };
+        ? { email: "demo.subscriber@example.com", password: "demo-password" } 
+        : { email: "demo.non.subscriber@example.com", password: "demo-password" };
       
       console.log(`Demo login as ${type} with:`, demoDetails);
       
@@ -85,7 +85,7 @@ const LoginPage = () => {
 
       // If the user doesn't exist yet, create it
       if (error && error.message.includes("Invalid login credentials")) {
-        const { error: signupError } = await supabase.auth.signUp({
+        const { error: signupError, data } = await supabase.auth.signUp({
           email: demoDetails.email,
           password: demoDetails.password,
           options: {
@@ -97,6 +97,8 @@ const LoginPage = () => {
         });
         
         if (signupError) throw signupError;
+        
+        console.log("New demo user created:", data);
         
         // Try signing in again after creating the user
         const { error: retryError } = await supabase.auth.signInWithPassword({
