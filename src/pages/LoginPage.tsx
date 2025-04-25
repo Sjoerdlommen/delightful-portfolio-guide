@@ -1,6 +1,6 @@
 
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,11 +10,15 @@ import { useForm } from "react-hook-form";
 import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const returnTo = location.state?.returnTo || '/portfolio';
 
   const form = useForm({
     defaultValues: {
@@ -23,34 +27,107 @@ const LoginPage = () => {
     }
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Authentication logic would go here
-    toast({
-      title: "Succesvol ingelogd",
-      description: "U bent nu ingelogd bij Aandelen Onder De Loep",
-    });
+  useEffect(() => {
+    // Check if user is already logged in
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        navigate(returnTo);
+      }
+    };
     
-    navigate('/portfolio');
+    checkUser();
+  }, [navigate, returnTo]);
+
+  const onSubmit = async (data: { email: string, password: string }) => {
+    setIsLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Succesvol ingelogd",
+        description: "U bent nu ingelogd bij Aandelen Onder De Loep",
+      });
+      
+      navigate(returnTo);
+    } catch (error) {
+      toast({
+        title: "Inloggen mislukt",
+        description: error instanceof Error ? error.message : "Er ging iets mis bij het inloggen.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleDemoLogin = (type: 'subscriber' | 'non-subscriber') => {
-    // Here we would simulate logging in with a demo account
-    const demoDetails = type === 'subscriber' 
-      ? { email: "demo-abonnee@voorbeeld.nl", password: "demo-password" } 
-      : { email: "demo-geen-abonnee@voorbeeld.nl", password: "demo-password" };
+  const handleDemoLogin = async (type: 'subscriber' | 'non-subscriber') => {
+    setIsLoading(true);
     
-    console.log(`Demo login as ${type} with:`, demoDetails);
-    
-    // Set demo state in localStorage to maintain demo status
-    localStorage.setItem('demoUserType', type);
-    
-    toast({
-      title: `Demo ingelogd als ${type === 'subscriber' ? 'abonnee' : 'niet-abonnee'}`,
-      description: "U kunt nu het verschil in functionaliteit ervaren",
-    });
-    
-    navigate('/portfolio');
+    try {
+      // Demo credentials based on user type
+      const demoDetails = type === 'subscriber' 
+        ? { email: "demo-abonnee@voorbeeld.nl", password: "demo-password" } 
+        : { email: "demo-geen-abonnee@voorbeeld.nl", password: "demo-password" };
+      
+      console.log(`Demo login as ${type} with:`, demoDetails);
+      
+      // First try to sign in with the demo credentials
+      let { error } = await supabase.auth.signInWithPassword({
+        email: demoDetails.email,
+        password: demoDetails.password,
+      });
+
+      // If the user doesn't exist yet, create it
+      if (error && error.message.includes("Invalid login credentials")) {
+        const { error: signupError } = await supabase.auth.signUp({
+          email: demoDetails.email,
+          password: demoDetails.password,
+          options: {
+            data: {
+              is_demo: true,
+              subscription_type: type
+            }
+          }
+        });
+        
+        if (signupError) throw signupError;
+        
+        // Try signing in again after creating the user
+        const { error: retryError } = await supabase.auth.signInWithPassword({
+          email: demoDetails.email,
+          password: demoDetails.password,
+        });
+        
+        if (retryError) throw retryError;
+      } else if (error) {
+        throw error;
+      }
+      
+      // Set demo state in localStorage to maintain demo status
+      localStorage.setItem('demoUserType', type);
+      
+      toast({
+        title: `Demo ingelogd als ${type === 'subscriber' ? 'abonnee' : 'niet-abonnee'}`,
+        description: "U kunt nu het verschil in functionaliteit ervaren",
+      });
+      
+      navigate('/portfolio');
+    } catch (error) {
+      console.error('Demo login error:', error);
+      toast({
+        title: "Demo inloggen mislukt",
+        description: error instanceof Error ? error.message : "Er ging iets mis bij het demo inloggen.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -141,8 +218,9 @@ const LoginPage = () => {
                 <Button 
                   type="submit" 
                   className="w-full py-6 bg-finance-blue hover:bg-finance-blue/90 text-white font-medium"
+                  disabled={isLoading}
                 >
-                  Inloggen
+                  {isLoading ? "Inloggen..." : "Inloggen"}
                 </Button>
               </form>
             </Form>
@@ -154,15 +232,17 @@ const LoginPage = () => {
                   variant="outline"
                   className="py-2 text-finance-blue border-finance-blue hover:bg-finance-blue/10"
                   onClick={() => handleDemoLogin('subscriber')}
+                  disabled={isLoading}
                 >
-                  Login als demo abonnee
+                  {isLoading ? "Inloggen..." : "Login als demo abonnee"}
                 </Button>
                 <Button
                   variant="outline"
                   className="py-2 text-finance-blue border-finance-blue hover:bg-finance-blue/10"
                   onClick={() => handleDemoLogin('non-subscriber')}
+                  disabled={isLoading}
                 >
-                  Login als demo niet-abonnee
+                  {isLoading ? "Inloggen..." : "Login als demo niet-abonnee"}
                 </Button>
               </div>
             </div>
