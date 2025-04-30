@@ -42,15 +42,12 @@ const Hero = () => {
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
               <div className="aspect-video">
-                <video 
-                  className="w-full h-full object-cover rounded-xl"
-                  controls
-                  autoPlay
-                  muted
-                >
-                  <source src="https://yxukwhaowopkoutjbhwd.supabase.co/storage/v1/object/sign/aandelenonderdeloep/video1918957518.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhYW5kZWxlbm9uZGVyZGVsb2VwL3ZpZGVvMTkxODk1NzUxOC5tcDQiLCJpYXQiOjE3NDM1MTI3MzYsImV4cCI6MTkwMTE5MjczNn0.lZdo3XsLVr5TMnoV6Tqknv2h2zfo0Rewv2cFQREV5VU" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.loom.com/embed/7c792579c6604ac28907d8b960f3fd15?sid=7c27e3db-1a2e-4766-ab94-de2935501da1"
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
           </div>
