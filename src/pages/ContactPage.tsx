@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, Building } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 const ContactPage = () => {
@@ -72,10 +72,10 @@ const ContactPage = () => {
                   </div>
                   
                   <div className="flex items-start space-x-4">
-                    <MapPin className="w-5 h-5 text-finance-blue mt-1" />
+                    <Building className="w-5 h-5 text-finance-blue mt-1" />
                     <div>
-                      <h4 className="font-medium">Locatie</h4>
-                      <p className="text-muted-foreground">Venlo</p>
+                      <h4 className="font-medium">KVK-nummer</h4>
+                      <p className="text-muted-foreground">97352241</p>
                     </div>
                   </div>
                 </div>

@@ -26,15 +26,15 @@ const NewsletterSignup = () => {
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 md:p-12">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Liever eerst een inkijkje?
+              Gratis updates? Liever eerst een inkijkje?
             </h2>
             <p className="text-lg text-muted-foreground">
               Wil je eerst zien wat je van onze service kunt verwachten?
             </p>
           </div>
 
-          {/* Benefits with checkmarks */}
-          <div className="flex flex-wrap justify-center gap-8 mb-8">
+          {/* Benefits stacked vertically */}
+          <div className="flex flex-col items-center gap-4 mb-8">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                 <Check className="w-4 h-4 text-white" />
@@ -80,7 +80,7 @@ const NewsletterSignup = () => {
                 type="submit" 
                 className="bg-finance-blue hover:bg-blue-700 text-white font-semibold px-8"
               >
-                Nieuwsbrief ontvangen
+                Ontvang een inkijkje!
               </Button>
             </div>
           </form>

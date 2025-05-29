@@ -7,51 +7,43 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
 
-const PortfolioCheckPage = () => {
+const UitgebreideAnalysePage = () => {
   const [formData, setFormData] = useState({
     naam: "",
     email: "",
-    bestand: null as File | null
+    aandeel: ""
   });
   const { toast } = useToast();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value, files } = e.target;
-    if (id === "bestand" && files) {
-      setFormData(prev => ({ ...prev, [id]: files[0] }));
-    } else {
-      setFormData(prev => ({ ...prev, [id]: value }));
-    }
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Portfolio Check aanvraag:", formData);
+    console.log("Uitgebreide Analyse aanvraag:", formData);
     
     toast({
       title: "Aanvraag verzonden",
-      description: "We nemen zo snel mogelijk contact met je op voor je portfolio check.",
+      description: "We nemen zo snel mogelijk contact met je op voor je uitgebreide analyse.",
       duration: 5000,
     });
     
     setFormData({
       naam: "",
       email: "",
-      bestand: null
+      aandeel: ""
     });
   };
 
   const benefits = [
-    "Spreiding over sectoren en regio's",
-    "Risicoblootstelling en balans tussen groei en stabiliteit",
-    "Mogelijke concentratierisico's",
-    "Kansen om jouw aandelenportefeuille te versterken"
+    "Krachtige SWOT-analyse",
+    "Concurrentieanalyse en ESG-beoordeling",
+    "Financiële gezondheid toetst en waarderingsratio's",
+    "Hoe aantrekkelijk is het aandeel?",
+    "Koersdoelen en technische trends"
   ];
 
   return (
@@ -62,16 +54,17 @@ const PortfolioCheckPage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                Laat je <span className="text-finance-blue">portefeuille doorlichten</span> – weet jij hoe goed je écht gespreid bent?
+                Investeer met vertrouwen – met de <span className="text-finance-blue">Uitgebreide Analyse</span> voor slechts €19,50
               </h1>
               <p className="text-lg text-muted-foreground">
-                Een goed rendement begint met een slimme spreiding. Met de Portfolio Check analyseer ik de samenstelling van je portefeuille op:
+                Wil je weten of een aandeel écht toekomst heeft? Met de Uitgebreide Analyse krijg je een diepgaand en helder overzicht van zowel de fundamentele als technische kant van een aandeel.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
               <div>
-                <div className="space-y-4 mb-8">
+                <h2 className="text-2xl font-semibold mb-6">Inclusief:</h2>
+                <div className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
@@ -82,24 +75,24 @@ const PortfolioCheckPage = () => {
                   ))}
                 </div>
 
-                <div className="p-6 bg-gray-50 rounded-lg">
+                <div className="mt-8 p-6 bg-gray-50 rounded-lg">
                   <p className="text-gray-700 mb-4">
-                    Je ontvangt een heldere beoordeling én concrete tips om je portefeuille toekomstbestendig te maken in een pdf-bestand, zodat je het altijd makkelijk terug kunt kijken.
+                    Of je nu twijfelt over een aankoop of je huidige positie wilt heroverwegen: deze analyse helpt je om weloverwogen beslissingen te nemen. Je ontvangt een uitgebreid rapport in pdf-bestand zodat je het altijd makkelijk terug kunt kijken.
                   </p>
                   <p className="font-semibold text-finance-blue">
-                    Voorkom verrassingen en haal meer uit je beleggingen.
+                    Een goede investering begint met de juiste informatie.
                   </p>
                   <p className="text-lg font-bold mt-2">
-                    ➡️ Laat nu je Portfolio Check uitvoeren!
+                    ➡️ Nu tijdelijk voor slechts €19,50
                   </p>
                 </div>
               </div>
 
               <Card className="border-finance-blue">
                 <CardHeader>
-                  <CardTitle className="text-center text-finance-blue">Portfolio Check aanvragen</CardTitle>
+                  <CardTitle className="text-center text-finance-blue">Vraag je analyse aan</CardTitle>
                   <CardDescription className="text-center">
-                    Upload je portfolio en ontvang een professionele analyse
+                    Vul onderstaande gegevens in en ontvang je uitgebreide analyse
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -132,27 +125,23 @@ const PortfolioCheckPage = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="bestand" className="block text-sm font-medium text-gray-700 mb-1">
-                        Portfolio bestand *
+                      <label htmlFor="aandeel" className="block text-sm font-medium text-gray-700 mb-1">
+                        Aandeel *
                       </label>
                       <Input
-                        id="bestand"
-                        type="file"
-                        accept=".pdf,.xlsx,.xls,.csv"
+                        id="aandeel"
+                        placeholder="Welk aandeel wilt u laten analyseren?"
+                        value={formData.aandeel}
                         onChange={handleChange}
                         required
-                        className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-finance-blue file:text-white hover:file:bg-finance-blue/90"
                       />
-                      <p className="text-xs text-gray-500 mt-1">
-                        Ondersteunde formaten: PDF, Excel, CSV
-                      </p>
                     </div>
                     
                     <Button 
                       type="submit" 
                       className="w-full bg-finance-blue hover:bg-finance-blue/90 text-white py-3"
                     >
-                      Doe nu de check!
+                      Vraag nu aan!
                     </Button>
                   </form>
                 </CardContent>
@@ -166,4 +155,4 @@ const PortfolioCheckPage = () => {
   );
 };
 
-export default PortfolioCheckPage;
+export default UitgebreideAnalysePage;
