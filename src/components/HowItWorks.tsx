@@ -7,7 +7,7 @@ const HowItWorks = () => {
     {
       icon: FileText,
       title: "Uitgebreide Analyse",
-      description: "Ontvang een uitgebreide analyse (fundamenteel én technisch) naar keuze en maag weloverwogen investeringsbeslissingen!",
+      description: "Ontvang een uitgebreide analyse (fundamenteel én technisch) naar keuze en maak weloverwogen investeringsbeslissingen!",
       link: "/analyses"
     },
     {
