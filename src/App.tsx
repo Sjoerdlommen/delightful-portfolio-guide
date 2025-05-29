@@ -18,6 +18,7 @@ import DisclaimerPage from "./pages/DisclaimerPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import CookiesPage from "./pages/CookiesPage";
 import MededelingenPage from "./pages/MededelingenPage";
+import PortfolioCheckPage from "./pages/PortfolioCheckPage";
 import NotFound from "./pages/NotFound";
 
 // Create a new client with stable options
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/analyses" element={<AnalysesPage />} />
           <Route path="/updates" element={<UpdatesPage />} />
           <Route path="/knowledge-portal" element={<KnowledgePortalPage />} />
+          <Route path="/portfolio-check" element={<PortfolioCheckPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/subscribe" element={<SubscribePage />} />
           <Route path="/payment" element={<PaymentPage />} />

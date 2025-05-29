@@ -1,5 +1,6 @@
+
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,17 +9,13 @@ const Footer = () => {
     {
       title: "Beleggen",
       links: [
-        { name: "Portefeuille", href: "/portfolio" },
-        { name: "Analyses", href: "/analyses" },
-        { name: "Updates", href: "/updates" },
-        { name: "Kennisportaal", href: "/knowledge-portal" },
+        { name: "Uitgebreide Analyse", href: "/analyses" },
+        { name: "Portfolio Check", href: "/portfolio-check" },
       ],
     },
     {
       title: "Aandelen onder de loep",
       links: [
-        { name: "Inloggen", href: "/login" },
-        { name: "Abonneren", href: "/subscribe" },
         { name: "Contact", href: "/contact" },
         { name: "FAQ", href: "/faq" },
       ],
@@ -44,15 +41,14 @@ const Footer = () => {
               Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille en maak weloverwogen investeringen.
             </p>
             <div className="flex space-x-4">
-              {[Instagram, Linkedin].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-600 hover:bg-finance-blue hover:text-white transition-colors"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/aandelenonderdeloep/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-600 hover:bg-finance-blue hover:text-white transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
 

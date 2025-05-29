@@ -1,77 +1,58 @@
 
-import { ArrowRight, LineChart, FileText, Mail, BookOpen } from "lucide-react";
+import { FileText, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
-  const features = [
+  const steps = [
     {
-      icon: <LineChart className="w-10 h-10 text-finance-blue" />,
-      title: "Portefeuille",
-      description: "Krijg inzicht in onze gespreide aandelenportefeuille, onze gemiddelde aankoopprijzen én het huidige resultaat.",
-      link: "/portfolio"
-    },
-    {
-      icon: <FileText className="w-10 h-10 text-finance-blue" />,
-      title: "Uitgebreide Analyses",
-      description: "Ontvang tweemaal per week een uitgebreide analyse en zie welke kooporders wij klaarzetten.",
+      icon: FileText,
+      title: "Uitgebreide Analyse",
+      description: "Ontvang een uitgebreide analyse (fundamenteel én technisch) naar keuze en maag weloverwogen investeringsbeslissingen!",
       link: "/analyses"
     },
     {
-      icon: <Mail className="w-10 h-10 text-finance-blue" />,
-      title: "Updates",
-      description: "Ontvang wekelijks een video-update waarin wij terugblikken op de week en onze beslissingen toelichten.",
-      link: "/updates"
-    },
-    {
-      icon: <BookOpen className="w-10 h-10 text-finance-blue" />,
-      title: "Kennisportaal",
-      description: "Krijg toegang tot de kennisportaal met video's over essentiële onderwerpen in het beleggen.",
-      link: "/knowledge-portal"
+      icon: TrendingUp,
+      title: "Portfolio Check",
+      description: "Laat jouw aandelenportefeuille checken en ontdek of je rendement laat liggen!",
+      link: "/portfolio-check"
     }
   ];
 
   return (
-    <section className="py-16 md:py-24" id="how-it-works">
+    <section id="how-it-works" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Wat wij bieden</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille toe en maak weloverwogen investeringen. Zie hieronder ons uitgebreide aanbod.
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Wat wij <span className="text-finance-blue">bieden</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Werk met behulp van Aandelen Onder De Loep naar een goed gespreide aandelenportefeuille toe en maak weloverwogen investeringen. Zie hieronder ons aanbod.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]"
-            >
-              <div className="mb-6 p-4 bg-finance-lightblue inline-block rounded-lg">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-              <p className="text-muted-foreground mb-6">{feature.description}</p>
-              <Link 
-                to={feature.link}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            {steps.map((step, index) => (
+              <Link
+                key={index}
+                to={step.link}
+                className="group relative p-8 rounded-xl border border-gray-200 hover:border-finance-blue transition-all duration-300 hover:shadow-lg bg-white"
                 onClick={() => window.scrollTo(0, 0)}
-                className="text-finance-blue font-medium inline-flex items-center group"
               >
-                Meer informatie 
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 bg-finance-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-finance-blue/20 transition-colors">
+                    <step.icon className="h-8 w-8 text-finance-blue" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-finance-blue transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
               </Link>
-            </div>
-          ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <Link 
-            to="/how-it-works"
-            onClick={() => window.scrollTo(0, 0)}
-            className="text-finance-blue font-medium inline-flex items-center group text-lg"
-          >
-            Lees meer over ons aanbod
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

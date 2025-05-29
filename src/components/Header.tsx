@@ -34,18 +34,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            <NavLink to="/portfolio">Portefeuille</NavLink>
-            <NavLink to="/analyses">Analyses</NavLink>
-            <NavLink to="/updates">Updates</NavLink>
-            <NavLink to="/knowledge-portal">Kennisportaal</NavLink>
-            <div className="ml-4 flex space-x-3">
-              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
-                <Link to="/login" onClick={() => window.scrollTo(0, 0)}>Inloggen</Link>
-              </Button>
-              <Button size="sm" className="px-4 py-2 bg-finance-blue hover:bg-finance-blue/90 transition-all duration-300 text-white" asChild>
-                <Link to="/subscribe" onClick={() => window.scrollTo(0, 0)}>Abonneren</Link>
-              </Button>
-            </div>
+            <NavLink to="/analyses">Uitgebreide Analyse</NavLink>
+            <NavLink to="/portfolio-check">Portfolio Check</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -66,26 +57,15 @@ const Header = () => {
         }`}
       >
         <nav className="flex flex-col p-6 space-y-6">
-          <MobileNavLink to="/portfolio" onClick={() => setMobileMenuOpen(false)}>
-            Portefeuille
-          </MobileNavLink>
           <MobileNavLink to="/analyses" onClick={() => setMobileMenuOpen(false)}>
-            Analyses
+            Uitgebreide Analyse
           </MobileNavLink>
-          <MobileNavLink to="/updates" onClick={() => setMobileMenuOpen(false)}>
-            Updates
+          <MobileNavLink to="/portfolio-check" onClick={() => setMobileMenuOpen(false)}>
+            Portfolio Check
           </MobileNavLink>
-          <MobileNavLink to="/knowledge-portal" onClick={() => setMobileMenuOpen(false)}>
-            Kennisportaal
+          <MobileNavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>
+            Contact
           </MobileNavLink>
-          <div className="pt-6 flex flex-col space-y-3">
-            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
-              <Link to="/login" onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}>Inloggen</Link>
-            </Button>
-            <Button className="w-full py-3 bg-finance-blue hover:bg-finance-blue/90 text-white" asChild>
-              <Link to="/subscribe" onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}>Abonneren</Link>
-            </Button>
-          </div>
         </nav>
       </div>
     </header>

@@ -2,9 +2,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
-import SubscriptionPlans from "@/components/SubscriptionPlans";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
@@ -22,14 +20,8 @@ const Index = () => {
         <div className="bg-white border-t border-gray-100">
           <HowItWorks />
         </div>
-        <div className="bg-gradient-finance">
-          <SubscriptionPlans />
-        </div>
         <div className="bg-white">
           <NewsletterSignup />
-        </div>
-        <div className="bg-gradient-finance">
-          <Testimonials />
         </div>
       </main>
       <Footer />

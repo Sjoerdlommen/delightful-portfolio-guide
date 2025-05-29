@@ -9,45 +9,102 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      portfolio_items: {
+      Analyses: {
         Row: {
-          created_at: string
-          currency: string
+          author_id: string | null
+          content: string
           id: string
-          isin: string
-          price_per_share: number
-          quantity: number
-          stock_name: string
-          total_value: number
-          total_value_eur: number
-          updated_at: string
-          user_id: string
+          published_at: string
+          title: string
         }
         Insert: {
-          created_at?: string
-          currency: string
+          author_id?: string | null
+          content?: string
           id?: string
-          isin: string
-          price_per_share: number
-          quantity: number
-          stock_name: string
-          total_value: number
-          total_value_eur: number
-          updated_at?: string
-          user_id: string
+          published_at?: string
+          title?: string
         }
         Update: {
-          created_at?: string
-          currency?: string
+          author_id?: string | null
+          content?: string
           id?: string
-          isin?: string
-          price_per_share?: number
-          quantity?: number
-          stock_name?: string
-          total_value?: number
-          total_value_eur?: number
-          updated_at?: string
-          user_id?: string
+          published_at?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      Kennisportaal: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          is_published: boolean | null
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_published?: boolean | null
+          title: string
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_published?: boolean | null
+          title?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      Portefeuille: {
+        Row: {
+          aantal: number | null
+          gekocht_op: string | null
+          gekocht_voor: number | null
+          id: string
+          ticker: string
+          user_id: string | null
+        }
+        Insert: {
+          aantal?: number | null
+          gekocht_op?: string | null
+          gekocht_voor?: number | null
+          id?: string
+          ticker?: string
+          user_id?: string | null
+        }
+        Update: {
+          aantal?: number | null
+          gekocht_op?: string | null
+          gekocht_voor?: number | null
+          id?: string
+          ticker?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      Updates: {
+        Row: {
+          id: string
+          published_at: string | null
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          id?: string
+          published_at?: string | null
+          title?: string
+          video_url?: string | null
+        }
+        Update: {
+          id?: string
+          published_at?: string | null
+          title?: string
+          video_url?: string | null
         }
         Relationships: []
       }
