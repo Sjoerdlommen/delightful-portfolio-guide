@@ -9,7 +9,7 @@ const Footer = () => {
     {
       title: "Beleggen",
       links: [
-        { name: "Uitgebreide Analyse", href: "/analyses" },
+        { name: "Uitgebreide Analyse", href: "/uitgebreide-analyse" },
         { name: "Portfolio Check", href: "/portfolio-check" },
       ],
     },
@@ -17,7 +17,6 @@ const Footer = () => {
       title: "Aandelen onder de loep",
       links: [
         { name: "Contact", href: "/contact" },
-        { name: "FAQ", href: "/faq" },
       ],
     },
   ];

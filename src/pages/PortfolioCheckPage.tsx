@@ -90,7 +90,7 @@ const PortfolioCheckPage = () => {
                     Voorkom verrassingen en haal meer uit je beleggingen.
                   </p>
                   <p className="text-lg font-bold mt-2">
-                    ➡️ Laat nu je Portfolio Check uitvoeren!
+                    ➡️ Nu tijdelijk voor slechts €19,50
                   </p>
                 </div>
               </div>

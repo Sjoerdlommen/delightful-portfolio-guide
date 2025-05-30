@@ -65,8 +65,8 @@ const ContactPage = () => {
                     <Mail className="w-5 h-5 text-finance-blue mt-1" />
                     <div>
                       <h4 className="font-medium">E-mail</h4>
-                      <a href="mailto:sjoerd@aandelenonderdeloep.nl" className="text-muted-foreground hover:text-finance-blue">
-                        sjoerd@aandelenonderdeloep.nl
+                      <a href="mailto:info@aandelenonderdeloep.nl" className="text-muted-foreground hover:text-finance-blue">
+                        info@aandelenonderdeloep.nl
                       </a>
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 const UitgebreideAnalysePage = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,10 @@ const UitgebreideAnalysePage = () => {
     aandeel: ""
   });
   const { toast } = useToast();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -54,7 +59,7 @@ const UitgebreideAnalysePage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                Investeer met vertrouwen – met de <span className="text-finance-blue">Uitgebreide Analyse</span> voor slechts €19,50
+                Investeer met vertrouwen en vraag een <span className="text-finance-blue">uitgebreide analyse</span> op maat aan!
               </h1>
               <p className="text-lg text-muted-foreground">
                 Wil je weten of een aandeel écht toekomst heeft? Met de Uitgebreide Analyse krijg je een diepgaand en helder overzicht van zowel de fundamentele als technische kant van een aandeel.
@@ -64,7 +69,7 @@ const UitgebreideAnalysePage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Inclusief:</h2>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-8">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
@@ -75,7 +80,7 @@ const UitgebreideAnalysePage = () => {
                   ))}
                 </div>
 
-                <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+                <div className="p-6 bg-gray-50 rounded-lg">
                   <p className="text-gray-700 mb-4">
                     Of je nu twijfelt over een aankoop of je huidige positie wilt heroverwegen: deze analyse helpt je om weloverwogen beslissingen te nemen. Je ontvangt een uitgebreid rapport in pdf-bestand zodat je het altijd makkelijk terug kunt kijken.
                   </p>
